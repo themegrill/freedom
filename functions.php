@@ -192,4 +192,15 @@ function freedom_theme_options() {
       esc_url('http://themegrill.com/contact/')
    );
 }
+
+/**
+ * Assign the Spacious version to a variable.
+ */
+$theme            = wp_get_theme( 'freedom' );
+$freedom_version = $theme['Version'];
+
+/* Calling in the admin area for the Welcome Page */
+if ( is_admin() ) {
+  require get_template_directory() . '/inc/admin/class-freedom-admin.php';
+}
 ?>
