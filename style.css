@@ -1680,7 +1680,8 @@ a#scroll-up:hover {
    }
 }
 
-
+/* =WooCommerce CSS
+----------------------------------------------- */
 .woocommerce ul.products li.product a img:hover,.woocommerce div.product div.images img:hover{
    opacity: 1;
 }
