@@ -23,6 +23,7 @@ class Freedom_Admin {
 	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'wp_loaded', array( __CLASS__, 'hide_notices' ) );
 		add_action( 'load-themes.php', array( $this, 'admin_notice' ) );
 	}
 
@@ -49,10 +50,36 @@ class Freedom_Admin {
 	 * Add admin notice.
 	 */
 	public function admin_notice() {
-		global $pagenow;
+		global $freedom_version, $pagenow;
 
+		wp_enqueue_style( 'freedom-message', get_template_directory_uri() . '/css/admin/message.css', array(), $freedom_version );
+
+		// Let's bail on theme activation.
 		if ( 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
 			add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
+			update_option( 'freedom_admin_notice_welcome', 1 );
+
+		// No option? Let run the notice wizard again..
+		} elseif( ! get_option( 'freedom_admin_notice_welcome' ) ) {
+			add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
+		}
+	}
+
+	/**
+	 * Hide a notice if the GET variable is set.
+	 */
+	public static function hide_notices() {
+		if ( isset( $_GET['freedom-hide-notice'] ) && isset( $_GET['_freedom_notice_nonce'] ) ) {
+			if ( ! wp_verify_nonce( $_GET['_freedom_notice_nonce'], 'freedom_hide_notices_nonce' ) ) {
+				wp_die( __( 'Action failed. Please refresh the page and retry.', 'freedom' ) );
+			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_die( __( 'Cheatin&#8217; huh?', 'freedom' ) );
+			}
+
+			$hide_notice = sanitize_text_field( $_GET['freedom-hide-notice'] );
+			update_option( 'freedom_admin_notice_' . $hide_notice, 1 );
 		}
 	}
 
@@ -61,9 +88,12 @@ class Freedom_Admin {
 	 */
 	public function welcome_notice() {
 		?>
-		<div class="updated notice is-dismissible">
-			<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing Freedom! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'freedom' ), '<a href="' . esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ) . '">', '</a>' ); ?></p>
-			<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ); ?>" class="button" style="text-decoration: none;"><?php esc_html_e( 'Get started with Freedom', 'freedom' ); ?></a></p>
+		<div id="message" class="updated freedom-message">
+			<a class="freedom-message-close notice-dismiss" href="<?php echo esc_url( wp_nonce_url( remove_query_arg( array( 'activated' ), add_query_arg( 'freedom-hide-notice', 'welcome' ) ), 'freedom_hide_notices_nonce', '_freedom_notice_nonce' ) ); ?>"><?php _e( 'Dismiss', 'freedom' ); ?></a>
+			<p><?php printf( esc_html__( 'Welcome! Thank you for choosing Freedom! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'freedom' ), '<a href="' . esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ) . '">', '</a>' ); ?></p>
+			<p class="submit">
+				<a class="button-secondary" href="<?php echo esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ); ?>"><?php esc_html_e( 'Get started with Freedom', 'freedom' ); ?></a>
+			</p>
 		</div>
 		<?php
 	}
@@ -75,17 +105,18 @@ class Freedom_Admin {
 	 */
 	private function intro() {
 		global $freedom_version;
+
 		$theme = wp_get_theme( get_template() );
 
 		// Drop minor version if 0
 		$major_version = substr( $freedom_version, 0, 3 );
 		?>
 		<div class="spacious-theme-info">
-				<h1>
-					<?php esc_html_e('About', 'freedom'); ?>
-					<?php echo $theme->display( 'Name' ); ?>
-					<?php printf( esc_html__( '%s', 'freedom' ), $major_version ); ?>
-				</h1>
+			<h1>
+				<?php esc_html_e('About', 'freedom'); ?>
+				<?php echo $theme->display( 'Name' ); ?>
+				<?php printf( '%s', $major_version ); ?>
+			</h1>
 
 			<div class="welcome-description-wrap">
 				<div class="about-text"><?php echo $theme->display( 'Description' ); ?></div>
@@ -99,11 +130,11 @@ class Freedom_Admin {
 		<p class="spacious-actions">
 			<a href="<?php echo esc_url( 'http://themegrill.com/themes/freedom/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Theme Info', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'http://demo.themegrill.com/freedom/' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'http://demo.themegrill.com/freedom/' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'http://themegrill.com/themes/freedom-pro/' ) ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'http://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'http://wordpress.org/support/view/theme-reviews/freedom?filter=5' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'https://wordpress.org/support/view/theme-reviews/freedom?filter=5#postform' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
 		</p>
 
 		<h2 class="nav-tab-wrapper">
@@ -203,10 +234,10 @@ class Freedom_Admin {
 			<div class="return-to-dashboard freedom">
 				<?php if ( current_user_can( 'update_core' ) && isset( $_GET['updated'] ) ) : ?>
 					<a href="<?php echo esc_url( self_admin_url( 'update-core.php' ) ); ?>">
-						<?php is_multisite() ? esc_html_e( 'Return to Updates' ) : esc_html_e( 'Return to Dashboard &rarr; Updates' ); ?>
+						<?php is_multisite() ? esc_html_e( 'Return to Updates', 'freedom' ) : esc_html_e( 'Return to Dashboard &rarr; Updates', 'freedom' ); ?>
 					</a> |
 				<?php endif; ?>
-				<a href="<?php echo esc_url( self_admin_url() ); ?>"><?php is_blog_admin() ? esc_html_e( 'Go to Dashboard &rarr; Home' ) : esc_html_e( 'Go to Dashboard' ); ?></a>
+				<a href="<?php echo esc_url( self_admin_url() ); ?>"><?php is_blog_admin() ? esc_html_e( 'Go to Dashboard &rarr; Home', 'freedom' ) : esc_html_e( 'Go to Dashboard', 'freedom' ); ?></a>
 			</div>
 		</div>
 		<?php
@@ -223,7 +254,7 @@ class Freedom_Admin {
 
 			<?php $this->intro(); ?>
 
-			<p class="about-description"><?php esc_html_e( 'View changelog below.', 'freedom' ); ?></p>
+			<p class="about-description"><?php esc_html_e( 'View changelog below:', 'freedom' ); ?></p>
 
 			<?php
 				$changelog_file = apply_filters( 'freedom_changelog_file', get_template_directory() . '/readme.txt' );
@@ -275,15 +306,21 @@ class Freedom_Admin {
 
 			<?php $this->intro(); ?>
 
-			<p class="about-description"><?php esc_html_e( 'This theme recommends following plugins.', 'freedom' ); ?></p>
+			<p class="about-description"><?php esc_html_e( 'This theme recommends following plugins:', 'freedom' ); ?></p>
 			<ol>
-				<li><?php printf(__('<a href="%s" target="_blank">Contact Form 7</a>', 'freedom'), esc_url('https://wordpress.org/plugins/contact-form-7/')); ?></li>
-				<li><?php printf(__('<a href="%s" target="_blank">WP-PageNavi</a>', 'freedom'), esc_url('https://wordpress.org/plugins/wp-pagenavi/')); ?></li>
-				<li><?php printf(__('<a href="%s" target="_blank">Breadcrumb NavXT</a>', 'freedom'), esc_url('https://wordpress.org/plugins/breadcrumb-navxt/')); ?></li>
-				<li>
-					<?php printf(__('<a href="%s" target="_blank">Polylang</a>', 'freedom'), esc_url('https://wordpress.org/plugins/polylang/')); ?>
-					<?php esc_html_e('Fully Compatible in Pro Version', 'freedom'); ?>
+				<li><?php printf(__('<a href="%s" target="_blank">Social Icons</a>', 'freedom'), esc_url('https://wordpress.org/plugins/social-icons/')); ?>
+					<?php esc_html_e(' by ThemeGrill', 'freedom'); ?>
 				</li>
+				<li><?php printf(__('<a href="%s" target="_blank">Easy Social Sharing</a>', 'freedom'), esc_url('https://wordpress.org/plugins/easy-social-sharing/')); ?>
+					<?php esc_html_e(' by ThemeGrill', 'freedom'); ?>
+				</li>
+				<li><?php printf(__('<a href="%s" target="_blank">Contact Form 7</a>', 'freedom'), esc_url('https://wordpress.org/plugins/contact-form-7/')); ?></li>
+                <li><?php printf(__('<a href="%s" target="_blank">WP-PageNavi</a>', 'freedom'), esc_url('https://wordpress.org/plugins/wp-pagenavi/')); ?></li>
+                <li><?php printf(__('<a href="%s" target="_blank">Breadcrumb NavXT</a>', 'freedom'), esc_url('https://wordpress.org/plugins/breadcrumb-navxt/')); ?></li>
+                <li>
+                    <?php printf(__('<a href="%s" target="_blank">Polylang</a>', 'freedom'), esc_url('https://wordpress.org/plugins/polylang/')); ?>
+                    <?php esc_html_e('Fully Compatible in Pro Version', 'freedom'); ?>
+                </li>
 			</ol>
 
 		</div>
@@ -301,87 +338,87 @@ class Freedom_Admin {
 
 			<p class="about-description"><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ); ?></p>
 
-						<table>
-				<thead>
-					<tr>
-						<th class="table-feature-title"><h3><?php esc_html_e('Features', 'freedom'); ?></h3></th>
-						<th><h3><?php esc_html_e('Freedom', 'freedom'); ?></h3></th>
-						<th><h3><?php esc_html_e('Freedom Pro', 'freedom'); ?></h3></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><h3><?php esc_html_e('Slider', 'freedom'); ?></h3><span class="table-desc">Number of sliders.</span></td>
-						<td><?php esc_html_e('4', 'freedom'); ?></td>
-						<td><?php esc_html_e('Unlimited Slides', 'freedom'); ?></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Google Fonts Option', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></span></td>
-						<td><?php esc_html_e('600+', 'freedom'); ?></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Font Size options', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Primary Color', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-yes"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Multiple Color Options', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><?php esc_html_e('35+ color options', 'freedom'); ?></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Social Icons', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Boxed & Wide layout option', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-yes"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Translation Ready', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-yes"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Content Demo', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Polylang Compatible', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Breadcrumb NavXT Compatible', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-yes"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Footer Widget Area', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-yes"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Footer Copyright Editor', 'freedom'); ?></h3></td>
-						<td><span class="dashicons dashicons-no"></td>
-						<td><span class="dashicons dashicons-yes"></td>
-					</tr>
-					<tr>
-						<td><h3><?php esc_html_e('Support', 'freedom'); ?></h3></td>
-						<td><?php esc_html_e('Forum', 'freedom'); ?></td>
-						<td><?php esc_html_e('Forum + Emails/Support Ticket', 'freedom'); ?></td>
-					</tr>
-				</tbody>
-			</table>
+			<table>
+                <thead>
+                    <tr>
+                        <th class="table-feature-title"><h3><?php esc_html_e('Features', 'freedom'); ?></h3></th>
+                        <th><h3><?php esc_html_e('Freedom', 'freedom'); ?></h3></th>
+                        <th><h3><?php esc_html_e('Freedom Pro', 'freedom'); ?></h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h3><?php esc_html_e('Slider', 'freedom'); ?></h3><span class="table-desc">Number of sliders.</span></td>
+                        <td><?php esc_html_e('4', 'freedom'); ?></td>
+                        <td><?php esc_html_e('Unlimited Slides', 'freedom'); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Google Fonts Option', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></span></td>
+                        <td><?php esc_html_e('600+', 'freedom'); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Font Size options', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Primary Color', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Multiple Color Options', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><?php esc_html_e('35+ color options', 'freedom'); ?></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Social Icons', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Boxed & Wide layout option', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Translation Ready', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Content Demo', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Polylang Compatible', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Breadcrumb NavXT Compatible', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Footer Widget Area', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Footer Copyright Editor', 'freedom'); ?></h3></td>
+                        <td><span class="dashicons dashicons-no"></td>
+                        <td><span class="dashicons dashicons-yes"></td>
+                    </tr>
+                    <tr>
+                        <td><h3><?php esc_html_e('Support', 'freedom'); ?></h3></td>
+                        <td><?php esc_html_e('Forum', 'freedom'); ?></td>
+                        <td><?php esc_html_e('Forum + Emails/Support Ticket', 'freedom'); ?></td>
+                    </tr>
+                </tbody>
+            </table>
 
 		</div>
 		<?php
