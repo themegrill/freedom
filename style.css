@@ -587,6 +587,9 @@ body {
 
 /* =NAVIGATION
 ----------------------------------------------- */
+.sub-toggle{
+	display: none;
+}
 nav li > ul,
 nav li > ol {
 	margin: 0;
@@ -649,7 +652,7 @@ li.default-menu {
 .main-navigation ul li ul {
 	position: absolute;
 	width: 200px;
-	top: 40px;
+	top: 100%;
 }
 .main-navigation ul li ul li {
 	float: left;
@@ -1631,6 +1634,24 @@ a#scroll-up:hover {
 	}
 }
 @media screen and (max-width: 767px) {
+	    #site-navigation ul li .sub-menu {
+        display: none;
+    }
+    .main-small-navigation li {
+        position: relative;
+    }
+    .sub-toggle {
+        background-color: #46C9BE;
+        cursor: pointer;
+        display: block;
+        padding: 3px 10px;
+        position: absolute;
+        right: 11px;
+        top: 6px;
+    }
+    .sub-toggle .fa {
+        color: #fff;
+    }
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
 		display: block;
