@@ -173,26 +173,6 @@ require_once( FREEDOM_ADMIN_DIR . '/meta-boxes.php' );
 /** Load Widgets and Widgetized Area */
 require_once( FREEDOM_WIDGETS_DIR . '/widgets.php' );
 
-/*
- * Adding Admin Menu for theme options
- */
-add_action( 'admin_menu', 'freedom_theme_options_menu' );
-function freedom_theme_options_menu() {
-   add_theme_page( 'Theme Options', 'Theme Options', 'manage_options', 'freedom-theme-options', 'freedom_theme_options' );
-}
-
-function freedom_theme_options() {
-   if ( !current_user_can( 'manage_options' ) )  {
-      wp_die( __( 'You do not have sufficient permissions to access this page.', 'freedom' ) );
-   } ?>
-   <h1 class="freedom-theme-options"><?php _e( 'Theme Options', 'freedom' ); ?></h1>
-   <?php
-   printf( __('<p style="font-size: 16px; max-width: 800px";>As our themes are hosted on WordPress repository, we need to follow the WordPress theme guidelines and as per the new guiedlines we have migrated all our Theme Options to Customizer.</p><p style="font-size: 16px; max-width: 800px";>We too think this is a better move in the long run. All the options are unchanged, it is just that they are moved to customizer. So, please use this <a href="%1$s">link</a> to customize your site. If you have any issues then do let us know via our <a href="%2$s">Contact form</a></p>', 'freedom'),
-      esc_url(admin_url( 'customize.php' ) ),
-      esc_url('http://themegrill.com/contact/')
-   );
-}
-
 /**
  * Assign the Spacious version to a variable.
  */
