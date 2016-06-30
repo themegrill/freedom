@@ -49,7 +49,10 @@ and we will include it within the theme from next version update.
 
 /**********************************************************/
 
-== CHANGE LOG ==
+== Changelog ==
+= Version 1.1.0 =
+* Introduced welcome page for theme.
+
 = Version 1.0.9 =
 * Fontawesome icons updated to 4.5.0
 * Content width adjusted according to the layout choosed
