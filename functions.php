@@ -174,7 +174,7 @@ require_once( FREEDOM_ADMIN_DIR . '/meta-boxes.php' );
 require_once( FREEDOM_WIDGETS_DIR . '/widgets.php' );
 
 /**
- * Assign the Spacious version to a variable.
+ * Assign the Esteem version to a variable.
  */
 $theme            = wp_get_theme( 'freedom' );
 $freedom_version = $theme['Version'];

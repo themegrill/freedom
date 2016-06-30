@@ -316,10 +316,7 @@ class Freedom_Admin {
 				</li>
 				<li><a href="<?php echo esc_url( 'https://wordpress.org/plugins/contact-form-7/' ); ?>" target="_blank"><?php esc_html_e( 'Contact Form 7', 'freedom' ); ?></a></li>
 				<li><a href="<?php echo esc_url( 'https://wordpress.org/plugins/wp-pagenavi/' ); ?>" target="_blank"><?php esc_html_e( 'WP-PageNavi', 'freedom' ); ?></a></li>
-				<li><a href="<?php echo esc_url( 'https://wordpress.org/plugins/polylang/' ); ?>" target="_blank"><?php esc_html_e( 'Polylang', 'freedom' ); ?></a>
-					<?php esc_html_e('Fully Compatible in Pro Version', 'freedom'); ?>
-				</li>
-				
+								
 			</ol>
 
 		</div>
@@ -388,11 +385,6 @@ class Freedom_Admin {
                     </tr>
                     <tr>
                         <td><h3><?php esc_html_e('Content Demo', 'freedom'); ?></h3></td>
-                        <td><span class="dashicons dashicons-no"></span></td>
-                        <td><span class="dashicons dashicons-yes"></span></td>
-                    </tr>
-                    <tr>
-                        <td><h3><?php esc_html_e('Polylang Compatible', 'freedom'); ?></h3></td>
                         <td><span class="dashicons dashicons-no"></span></td>
                         <td><span class="dashicons dashicons-yes"></span></td>
                     </tr>
