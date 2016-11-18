@@ -79,18 +79,20 @@ function freedom_customize_register($wp_customize) {
       'panel' => 'freedom_header_options'
    ));
 
-   $wp_customize->add_setting('freedom_header_logo_image', array(
-      'default' => '',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'esc_url_raw'
-   ));
+	if ( !function_exists('the_custom_logo') || ( get_theme_mod('freedom_header_logo_image', '') != '' ) ) {
+		$wp_customize->add_setting('freedom_header_logo_image', array(
+		  'default' => '',
+		  'capability' => 'edit_theme_options',
+		  'sanitize_callback' => 'esc_url_raw'
+		));
 
-   $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'freedom_header_logo_image', array(
-      'label' => __('Upload logo for your header.', 'freedom'),
-      'section' => 'freedom_header_logo',
-      'setting' => 'freedom_header_logo_image'
-   )));
-
+		$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'freedom_header_logo_image', array(
+		  'label' => __('Upload logo for your header.', 'freedom'),
+		  'description' => __( '<strong>Info:</strong> This option will be remove in upcoming update. Please go to Site Identity section to upload the theme logo.', 'freedom' ),
+		  'section' => 'freedom_header_logo',
+		  'setting' => 'freedom_header_logo_image'
+		)));
+	}
    // Header logo and text display type option
    $wp_customize->add_section('freedom_show_option', array(
       'priority' => 2,
