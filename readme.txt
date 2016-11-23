@@ -50,6 +50,10 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+
+= Version 1.1.1 TBD =
+* Feature - Added the Custom Site Logo feature introduced in WordPress 4.5
+
 = Version 1.1.0 =
 * Introduced welcome page for theme.
 

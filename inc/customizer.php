@@ -88,7 +88,8 @@ function freedom_customize_register($wp_customize) {
 
 		$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'freedom_header_logo_image', array(
 		  'label' => __('Upload logo for your header.', 'freedom'),
-		  'description' => __( '<strong>Info:</strong> This option will be remove in upcoming update. Please go to Site Identity section to upload the theme logo.', 'freedom' ),
+		  'description' => sprintf(__( '%sInfo:%s This option will be removed in upcoming update. Please go to Site Identity section to upload the theme logo.', 'freedom'  ), '<strong>', '</strong>'),
+
 		  'section' => 'freedom_header_logo',
 		  'setting' => 'freedom_header_logo_image'
 		)));
