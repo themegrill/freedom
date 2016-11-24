@@ -63,6 +63,12 @@ function freedom_setup() {
    // Supporting title tag via add_theme_support (since WordPress 4.1)
    add_theme_support( 'title-tag' );
 
+   // Adds the support for the Custom Logo introduced in WordPress 4.5
+	add_theme_support( 'custom-logo', array(
+		'flex-width' => true,
+		'flex-height' => true,
+	));
+
 	// Registering navigation menu.
 	register_nav_menu( 'primary', 'Primary Menu' );
 

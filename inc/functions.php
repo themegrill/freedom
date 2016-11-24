@@ -463,4 +463,16 @@ function freedom_sanitize_textarea_custom( $input,$option ) {
    }
    return $output;
 }
+
+// Displays the site logo
+if ( ! function_exists( 'freedom_the_custom_logo' ) ) {
+  /**
+   * Displays the optional custom logo.
+   */
+  function freedom_the_custom_logo() {
+    if ( function_exists( 'the_custom_logo' )  && ( get_theme_mod( 'freedom_header_logo_image','' ) == '') ) {
+      the_custom_logo();
+    }
+  }
+}
 ?>
