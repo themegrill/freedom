@@ -147,14 +147,15 @@ function freedom_body_class( $classes ) {
 	elseif( $layout_meta == 'no_sidebar_full_width' ) { $classes[] = 'no-sidebar-full-width'; }
 	elseif( $layout_meta == 'no_sidebar_content_centered' ) { $classes[] = 'no-sidebar'; }
 
+	if( get_theme_mod( 'freedom_new_menu', 0 ) == 1 ){
+		$classes[] = 'better-responsive-menu';
+	}
+
 	if( get_theme_mod( 'freedom_site_layout', 'wide' ) == 'wide' ) {
 		$classes[] = 'wide';
 	}
 	elseif( get_theme_mod( 'freedom_site_layout', 'wide' ) == 'box' ) {
 		$classes[] = '';
-	}
-	if( get_theme_mod( 'freedom_new_menu', '' ) != '' ){
-		$classes[] = 'better-responsive-menu';
 	}
 
 	return $classes;

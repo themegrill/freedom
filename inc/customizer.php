@@ -127,7 +127,6 @@ function freedom_customize_register($wp_customize) {
    ));
    $wp_customize->add_setting('freedom_new_menu', array(
       'default' => 0,
-      'type' => 'option',
       'capability' => 'edit_theme_options',
       'sanitize_callback' => 'freedom_checkbox_sanitize'
    ));
