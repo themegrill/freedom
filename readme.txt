@@ -51,6 +51,9 @@ and we will include it within the theme from next version update.
 
 == Changelog ==
 
+= Version 1.1.2 TBD =
+* Feature - Added new responsive menu design
+
 = Version 1.1.1 TBD =
 * Feature - Added the Custom Site Logo feature introduced in WordPress 4.5
 
