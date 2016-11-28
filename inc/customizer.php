@@ -118,6 +118,26 @@ function freedom_customize_register($wp_customize) {
          'none' => __('Disable', 'freedom')
       )
    ));
+
+   // New Responsive Menu
+   $wp_customize->add_section('freedom_new_menu_style', array(
+      'priority' => 3,
+      'title' => esc_html__('Responsive Menu Style', 'freedom'),
+      'panel' => 'freedom_header_options'
+   ));
+   $wp_customize->add_setting('freedom_new_menu', array(
+      'default' => 0,
+      'type' => 'option',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'freedom_checkbox_sanitize'
+   ));
+   $wp_customize->add_control('freedom_new_menu', array(
+      'type' => 'checkbox',
+      'label' => esc_html__('Switch to new responsive menu', 'freedom'),
+      'section' => 'freedom_new_menu_style',
+      'settings' => 'freedom_new_menu'
+   ));
+
    // End of Header Options
 
    // Start of the Design Options
