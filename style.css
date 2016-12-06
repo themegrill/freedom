@@ -1664,7 +1664,7 @@ a#scroll-up:hover {
     text-align: center;
     cursor: pointer;
     color: #fff;
-    font-size: 14px
+    font-size: 14px;
 }
 .better-responsive-menu .menu li ul li .sub-toggle{
 	transform: none;
