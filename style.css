@@ -1651,7 +1651,7 @@ a#scroll-up:hover {
 
 .better-responsive-menu .main-navigation a{
 	border-bottom: 1px solid #e1e1e1;
-	width: 100%;
+	width: auto;
 }
 .better-responsive-menu .menu li .sub-toggle,
 .better-responsive-menu .menu li ul li .sub-toggle {
@@ -1712,13 +1712,19 @@ a#scroll-up:hover {
 .better-responsive-menu .main-navigation ul ul ul ul li:hover ul ul{
 	box-shadow: none;
 }
-.main-navigation ul li ul li a,
-.main-navigation ul li.current-menu-item ul li a,
-.main-navigation ul li ul li.current-menu-item a,
-.main-navigation ul li.current_page_ancestor ul li a,
-.main-navigation ul li.current-menu-ancestor ul li a,
-.main-navigation ul li.current_page_item ul li a{
-	padding: 12px 30px;
+.better-responsive-menu .main-navigation ul li ul li a,
+.better-responsive-menu .main-navigation ul li.current-menu-item ul li a,
+.better-responsive-menu .main-navigation ul li ul li.current-menu-item a,
+.better-responsive-menu .main-navigation ul li.current_page_ancestor ul li a,
+.better-responsive-menu .main-navigation ul li.current-menu-ancestor ul li a,
+.better-responsive-menu .main-navigation ul li.current_page_item ul li a{
+	padding: 12px 17px;
+}
+.better-responsive-menu .main-navigation ul li ul li a{
+	padding-left: 40px;
+}
+.better-responsive-menu .main-navigation ul li ul li ul li a{
+	padding-left: 60px;
 }
 }
 @media screen and (max-width: 767px) {
