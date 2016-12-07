@@ -25,8 +25,8 @@ jQuery(document).ready(function() {
         jQuery(this).toggleClass('active');
     });
 
-    jQuery('#site-navigation .menu-toggle').click(function() {
-      jQuery('#site-navigation .menu').slideToggle('slow');
+    jQuery('.better-responsive-menu #site-navigation .menu-toggle').click(function() {
+      jQuery('.better-responsive-menu #site-navigation .menu').slideToggle('slow');
     });
 
 });
