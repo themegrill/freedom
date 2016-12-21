@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
     });
 
     jQuery('.better-responsive-menu #site-navigation .menu-toggle').click(function() {
-      jQuery('.better-responsive-menu #site-navigation .menu').slideToggle('slow');
+      jQuery('.better-responsive-menu #site-navigation .menu-primary-container > ul,.main-navigation .menu > ul').slideToggle('slow');
     });
 
 });

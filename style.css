@@ -746,7 +746,7 @@ li.default-menu {
 .main-small-navigation .current-menu-item a {
   background: #46c9be;
   color: #FFFFFF;
-} 
+}
 
 /* =RESPONSIVE MENU - 2
 ----------------------------------------------- */
@@ -1670,7 +1670,7 @@ a#scroll-up:hover {
 	transform: none;
 }
 .better-responsive-menu .menu li .sub-toggle:hover{
-    background-color: #36b9ae;	
+    background-color: #36b9ae;
 }
 .better-responsive-menu #site-navigation{
 	position: relative;
@@ -1697,18 +1697,18 @@ a#scroll-up:hover {
     position: relative;
     width: 100%;
 }
-.better-responsive-menu .main-navigation ul li:hover ul, 
-.better-responsive-menu .main-navigation ul ul li:hover ul, 
-.better-responsive-menu .main-navigation ul ul ul li:hover ul, 
-.better-responsive-menu .main-navigation ul ul ul ul li:hover ul, 
+.better-responsive-menu .main-navigation ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul ul ul li:hover ul,
 .better-responsive-menu .main-navigation ul ul ul ul ul li:hover ul{
 	display: none;
 }
 
-.better-responsive-menu .main-navigation ul li ul, 
-.better-responsive-menu .main-navigation ul li:hover ul ul, 
-.better-responsive-menu .main-navigation ul ul li:hover ul ul, 
-.better-responsive-menu .main-navigation ul ul ul li:hover ul ul, 
+.better-responsive-menu .main-navigation ul li ul,
+.better-responsive-menu .main-navigation ul li:hover ul ul,
+.better-responsive-menu .main-navigation ul ul li:hover ul ul,
+.better-responsive-menu .main-navigation ul ul ul li:hover ul ul,
 .better-responsive-menu .main-navigation ul ul ul ul li:hover ul ul{
 	box-shadow: none;
 }
@@ -1732,8 +1732,9 @@ a#scroll-up:hover {
 	.main-navigation.toggled .nav-menu {
 		display: block;
 	}
-	.main-navigation ul {
-		display: none;
+	.main-navigation .menu-primary-container > ul,
+	.main-navigation .menu > ul{
+		display:none;
 	}
 	.main-navigation {
 		float: none;
