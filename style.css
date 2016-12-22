@@ -587,9 +587,6 @@ body {
 
 /* =NAVIGATION
 ----------------------------------------------- */
-.sub-toggle{
-	display: none;
-}
 nav li > ul,
 nav li > ol {
 	margin: 0;
@@ -652,7 +649,7 @@ li.default-menu {
 .main-navigation ul li ul {
 	position: absolute;
 	width: 200px;
-	top: 100%;
+	top: 40px;
 }
 .main-navigation ul li ul li {
 	float: left;
@@ -689,6 +686,7 @@ li.default-menu {
 	display: none;
 }
 
+
 /* =RESPONSIVE MENU
 ----------------------------------------------- */
 .menu-toggle, .top-menu-toggle {
@@ -717,7 +715,7 @@ li.default-menu {
 	color: #46c9be;
 	padding-right: 10px;
 }
-.main-small-navigation {
+ .main-small-navigation {
 	float: none;
 }
 .main-small-navigation ul {
@@ -750,6 +748,24 @@ li.default-menu {
   color: #FFFFFF;
 }
 
+/* =RESPONSIVE MENU - 2
+----------------------------------------------- */
+
+.better-responsive-menu .menu li .sub-toggle {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    font-size: 14px;
+}
+.better-responsive-menu .menu li ul li .sub-toggle{
+	right: 15px;
+	top: 7px;
+	transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+}
 /* =FEATURED SLIDER
 ----------------------------------------------- */
 #featured-slider {
@@ -1632,32 +1648,93 @@ a#scroll-up:hover {
 		text-align: center;
 		margin-bottom: 5px;
 	}
+
+.better-responsive-menu .main-navigation a{
+	border-bottom: 1px solid #e1e1e1;
+	width: auto;
+}
+.better-responsive-menu .menu li .sub-toggle,
+.better-responsive-menu .menu li ul li .sub-toggle {
+    right: 15px;
+    top: 15px;
+    background-color: #46C9BE;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
+}
+.better-responsive-menu .menu li ul li .sub-toggle{
+	transform: none;
+}
+.better-responsive-menu .menu li .sub-toggle:hover{
+    background-color: #36b9ae;
+}
+.better-responsive-menu #site-navigation{
+	position: relative;
+}
+.better-responsive-menu .main-navigation ul.menu ,
+.better-responsive-menu .main-small-navigation ul.menu {
+    background-color: #fff;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 9;
+}
+.better-responsive-menu .main-navigation ul li ul{
+	position: unset;
+	width: 100%;
+}
+.better-responsive-menu .main-navigation ul li ul{
+	box-shadow: none;
+}
+.better-responsive-menu .main-navigation li,
+.better-responsive-menu .main-small-navigation li {
+    text-align: left;
+    position: relative;
+    width: 100%;
+}
+.better-responsive-menu .main-navigation ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul ul ul li:hover ul,
+.better-responsive-menu .main-navigation ul ul ul ul ul li:hover ul{
+	display: none;
+}
+
+.better-responsive-menu .main-navigation ul li ul,
+.better-responsive-menu .main-navigation ul li:hover ul ul,
+.better-responsive-menu .main-navigation ul ul li:hover ul ul,
+.better-responsive-menu .main-navigation ul ul ul li:hover ul ul,
+.better-responsive-menu .main-navigation ul ul ul ul li:hover ul ul{
+	box-shadow: none;
+}
+.better-responsive-menu .main-navigation ul li ul li a,
+.better-responsive-menu .main-navigation ul li.current-menu-item ul li a,
+.better-responsive-menu .main-navigation ul li ul li.current-menu-item a,
+.better-responsive-menu .main-navigation ul li.current_page_ancestor ul li a,
+.better-responsive-menu .main-navigation ul li.current-menu-ancestor ul li a,
+.better-responsive-menu .main-navigation ul li.current_page_item ul li a{
+	padding: 12px 17px;
+}
+.better-responsive-menu .main-navigation ul li ul li a{
+	padding-left: 40px;
+}
+.better-responsive-menu .main-navigation ul li ul li ul li a{
+	padding-left: 60px;
+}
 }
 @media screen and (max-width: 767px) {
-	    #site-navigation ul li .sub-menu {
-        display: none;
-    }
-    .main-small-navigation li {
-        position: relative;
-    }
-    .sub-toggle {
-        background-color: #46C9BE;
-        cursor: pointer;
-        display: block;
-        padding: 3px 10px;
-        position: absolute;
-        right: 11px;
-        top: 6px;
-    }
-    .sub-toggle .fa {
-        color: #fff;
-    }
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
 		display: block;
 	}
-	.main-navigation ul {
-		display: none;
+	.main-navigation .menu-primary-container > ul,
+	.main-navigation .menu > ul{
+		display:none;
 	}
 	.main-navigation {
 		float: none;
@@ -1700,6 +1777,7 @@ a#scroll-up:hover {
       width:33.33%;
    }
 }
+
 
 /* =WooCommerce CSS
 ----------------------------------------------- */
