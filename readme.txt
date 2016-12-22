@@ -51,11 +51,12 @@ and we will include it within the theme from next version update.
 
 == Changelog ==
 
-= Version 1.1.2 TBD =
-* Feature - Added new responsive menu design
-
 = Version 1.1.1 TBD =
 * Feature - Added the Custom Site Logo feature introduced in WordPress 4.5
+* Feature - Migrated the Custom CSS code added in theme settings to Additional CSS section introduced in WordPress 4.7
+* Feature - Added RTL support.
+* Feature - Theme is now compatible with WooCommerce.
+* Feature - Added new responsive menu design
 
 = Version 1.1.0 =
 * Introduced welcome page for theme.

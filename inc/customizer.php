@@ -373,41 +373,44 @@ function freedom_customize_register($wp_customize) {
       'settings' => 'freedom_primary_color'
    )));
 
-   // Custom CSS setting
-   class Freedom_Custom_CSS_Control extends WP_Customize_Control {
+	if ( ! function_exists( 'wp_update_custom_css_post' ) ) {
+		// Custom CSS setting
+		class Freedom_Custom_CSS_Control extends WP_Customize_Control {
 
-      public $type = 'custom_css';
+			public $type = 'custom_css';
 
-      public function render_content() {
-      ?>
-         <label>
-            <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-            <textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-         </label>
-      <?php
-      }
+			public function render_content() {
+			?>
+				<label>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+				</label>
+			<?php
+			}
 
-   }
+		}
 
-   $wp_customize->add_section('freedom_custom_css_setting', array(
-      'priority' => 9,
-      'title' => __('Custom CSS', 'freedom'),
-      'panel' => 'freedom_design_options'
-   ));
+		$wp_customize->add_section('freedom_custom_css_setting', array(
+			'priority' => 9,
+			'title' => __('Custom CSS', 'freedom'),
+			'panel' => 'freedom_design_options'
+		));
 
-   $wp_customize->add_setting('freedom_custom_css', array(
-      'default' => '',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'wp_filter_nohtml_kses',
-      'sanitize_js_callback' => 'wp_filter_nohtml_kses'
-   ));
+		$wp_customize->add_setting('freedom_custom_css', array(
+			'default' => '',
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'wp_filter_nohtml_kses',
+			'sanitize_js_callback' => 'wp_filter_nohtml_kses'
+		));
 
-   $wp_customize->add_control(new Freedom_Custom_CSS_Control($wp_customize, 'freedom_custom_css', array(
-      'label' => __('Write your custom css.', 'freedom'),
-      'section' => 'freedom_custom_css_setting',
-      'settings' => 'freedom_custom_css'
-   )));
-   // End of Design Options
+		$wp_customize->add_control(new Freedom_Custom_CSS_Control($wp_customize, 'freedom_custom_css', array(
+			'label' => __('Write your custom css.', 'freedom'),
+			'section' => 'freedom_custom_css_setting',
+			'settings' => 'freedom_custom_css'
+		)));
+
+	}
+	// End of Design Options
 
    // Adding Text Area Control For Use In Customizer
    class Freedom_Text_Area_Control extends WP_Customize_Control {

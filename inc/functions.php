@@ -50,10 +50,8 @@ function freedom_scripts_styles_method() {
 
 	wp_enqueue_style( 'google_fonts' );
 
-   $freedom_user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-	if(preg_match('/(?i)msie [1-8]/',$freedom_user_agent)) {
-		wp_enqueue_script( 'html5', FREEDOM_JS_URL . '/html5shiv.min.js', true );
-	}
+	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/js/html5shiv.js', array(), '3.7.3', false );
+	wp_script_add_data( 'html5shiv', 'conditional', 'lte IE 8' );
 
 }
 
@@ -318,7 +316,8 @@ function freedom_custom_css() {
 	$primary_color = get_theme_mod( 'freedom_primary_color', '#46c9be' );
 	$primary_dark    = freedom_darkcolor($primary_color, -50);
 	if( $primary_color != '#46c9be' ) {
-		$freedom_internal_css .= ' .feedom-button,blockquote,button,input[type=button],input[type=reset],input[type=submit]{background-color:'.$primary_color.'}#site-title a:hover,.next a:hover,.previous a:hover,a{color:'.$primary_color.'}#search-form span{background-color:'.$primary_color.'}.main-navigation a:hover,.main-navigation ul li ul li a:hover,.main-navigation ul li ul li:hover>a,.main-navigation ul li.current-menu-ancestor a,.main-navigation ul li.current-menu-item a,.main-navigation ul li.current-menu-item ul li a:hover,.main-navigation ul li.current_page_ancestor a,.main-navigation ul li.current_page_item a,.main-navigation ul li:hover>a,.site-header .menu-toggle:before{color:'.$primary_color.'}.main-small-navigation li a:hover,.main-small-navigation .current-menu-item a,.main-small-navigation .current_page_item a{background-color:'.$primary_color.'}#featured-slider .entry-title a:hover{color:'.$primary_color.'}#featured-slider .slider-read-more-button a{background-color:'.$primary_color.'}.slider-nav i:hover{color:'.$primary_color.'}.format-link .entry-content a,.pagination span{background-color:'.$primary_color.'}.pagination a span:hover{color:'.$primary_color.';border-color:'.$primary_color.'}#content .comments-area a.comment-edit-link:hover,#content .comments-area a.comment-permalink:hover,#content .comments-area article header cite a:hover,.comments-area .comment-author-link a:hover{color:'.$primary_color.'}.comments-area .comment-author-link span{background-color:'.$primary_color.'}.comment .comment-reply-link:hover,.nav-next a,.nav-previous a{color:'.$primary_color.'}#secondary h3.widget-title{border-bottom:2px solid '.$primary_color.'}#wp-calendar #today{color:'.$primary_color.'}.entry-meta .byline i,.entry-meta .cat-links i,.entry-meta a,.footer-socket-wrapper .copyright a:hover,.footer-widgets-area a:hover,.post .entry-title a:hover,.search .entry-title a:hover,.post-box .entry-meta .cat-links a:hover,.post-box .entry-meta .posted-on a:hover,.post.post-box .entry-title a:hover,a#scroll-up i{color:'.$primary_color.'}.entry-meta .post-format i{background-color:'.$primary_color.'}.entry-meta .comments-link a:hover,.entry-meta .edit-link a:hover,.entry-meta .posted-on a:hover,.entry-meta .tag-links a:hover{color:'.$primary_color.'}.more-link span{background-color:'.$primary_color.'}.single #content .tags a:hover{color:'.$primary_color.'}.no-post-thumbnail{background-color:'.$primary_color.'}@media screen and (max-width:768px){.top-menu-toggle:before{color:'.$primary_color.'}.better-responsive-menu .menu li .sub-toggle:hover{background-color:'.$primary_dark.'}.better-responsive-menu .menu li .sub-toggle {background-color:'.$primary_color.'}}';
+
+		$freedom_internal_css .= ' .feedom-button,blockquote,button,input[type=button],input[type=reset],input[type=submit]{background-color:'.$primary_color.'}#site-title a:hover,.next a:hover,.previous a:hover,a{color:'.$primary_color.'}#search-form span{background-color:'.$primary_color.'}.main-navigation a:hover,.main-navigation ul li ul li a:hover,.main-navigation ul li ul li:hover>a,.main-navigation ul li.current-menu-ancestor a,.main-navigation ul li.current-menu-item a,.main-navigation ul li.current-menu-item ul li a:hover,.main-navigation ul li.current_page_ancestor a,.main-navigation ul li.current_page_item a,.main-navigation ul li:hover>a,.site-header .menu-toggle:before{color:'.$primary_color.'}.main-small-navigation li a:hover,.main-small-navigation .current-menu-item a,.main-small-navigation .current_page_item a{background-color:'.$primary_color.'}#featured-slider .entry-title a:hover{color:'.$primary_color.'}#featured-slider .slider-read-more-button a{background-color:'.$primary_color.'}.slider-nav i:hover{color:'.$primary_color.'}.format-link .entry-content a,.pagination span{background-color:'.$primary_color.'}.pagination a span:hover{color:'.$primary_color.';border-color:'.$primary_color.'}#content .comments-area a.comment-edit-link:hover,#content .comments-area a.comment-permalink:hover,#content .comments-area article header cite a:hover,.comments-area .comment-author-link a:hover{color:'.$primary_color.'}.comments-area .comment-author-link span{background-color:'.$primary_color.'}.comment .comment-reply-link:hover,.nav-next a,.nav-previous a{color:'.$primary_color.'}#secondary h3.widget-title{border-bottom:2px solid '.$primary_color.'}#wp-calendar #today{color:'.$primary_color.'}.entry-meta .byline i,.entry-meta .cat-links i,.entry-meta a,.footer-socket-wrapper .copyright a:hover,.footer-widgets-area a:hover,.post .entry-title a:hover,.search .entry-title a:hover,.post-box .entry-meta .cat-links a:hover,.post-box .entry-meta .posted-on a:hover,.post.post-box .entry-title a:hover,a#scroll-up i{color:'.$primary_color.'}.entry-meta .post-format i{background-color:'.$primary_color.'}.entry-meta .comments-link a:hover,.entry-meta .edit-link a:hover,.entry-meta .posted-on a:hover,.entry-meta .tag-links a:hover{color:'.$primary_color.'}.more-link span{background-color:'.$primary_color.'}.single #content .tags a:hover{color:'.$primary_color.'}.no-post-thumbnail{background-color:'.$primary_color.'}@media screen and (max-width:768px){.top-menu-toggle:before{color:'.$primary_color.'}.better-responsive-menu .menu li .sub-toggle:hover{background-color:'.$primary_dark.'}.better-responsive-menu .menu li .sub-toggle {background-color:'.$primary_color.'}} .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce span.onsale {background-color: '.$primary_color.';},.woocommerce ul.products li.product .price .amount,.entry-summary .price .amount,.woocommerce .woocommerce-message::before{color: '.$primary_color.';} .woocommerce .woocommerce-message { border-top-color: '.$primary_color.';}';
 	}
 
 	if( !empty( $freedom_internal_css ) ) {
@@ -327,8 +326,8 @@ function freedom_custom_css() {
 <?php
 	}
 
-	$freedom_custom_css = get_theme_mod( 'freedom_custom_css', '' );
-	if( !empty( $freedom_custom_css ) ) {
+	$freedom_custom_css = get_theme_mod( 'freedom_custom_css' );
+	if( $freedom_custom_css && ! function_exists( 'wp_update_custom_css_post' ) ) {
 		echo '<!-- '.get_bloginfo('name').' Custom Styles -->';
 		?><style type="text/css"><?php echo $freedom_custom_css; ?></style><?php
 	}
@@ -509,4 +508,44 @@ if ( ! function_exists( 'freedom_the_custom_logo' ) ) {
     }
   }
 }
-?>
+
+/**************************************************************************************/
+
+/**
+ * Migrate any existing theme CSS codes added in Customize Options to the core option added in WordPress 4.7
+ */
+function freedom_custom_css_migrate() {
+
+	if ( function_exists( 'wp_update_custom_css_post' ) ) {
+		$custom_css = get_theme_mod( 'freedom_custom_css' );
+		if ( $custom_css ) {
+			$core_css = wp_get_custom_css(); // Preserve any CSS already added to the core option.
+			$return = wp_update_custom_css_post( $core_css . $custom_css );
+			if ( ! is_wp_error( $return ) ) {
+				// Remove the old theme_mod, so that the CSS is stored in only one place moving forward.
+				remove_theme_mod( 'freedom_custom_css' );
+			}
+		}
+	}
+}
+add_action( 'after_setup_theme', 'freedom_custom_css_migrate' );
+
+/**
+ * Making the theme Woocommrece compatible
+ */
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+
+add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+add_action('woocommerce_before_main_content', 'freedom_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'freedom_wrapper_end', 10);
+
+function freedom_wrapper_start() {
+  echo '<div id="primary">';
+}
+
+function freedom_wrapper_end() {
+  echo '</div>';
+}
