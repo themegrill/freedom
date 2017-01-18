@@ -50,6 +50,8 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= TBD =
+* Tweaks - Remove the older header logo data.
 
 = Version 1.1.1 2016-12-26 =
 * Feature - Added the Custom Site Logo feature introduced in WordPress 4.5

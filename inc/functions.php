@@ -503,11 +503,30 @@ if ( ! function_exists( 'freedom_the_custom_logo' ) ) {
    * Displays the optional custom logo.
    */
   function freedom_the_custom_logo() {
-    if ( function_exists( 'the_custom_logo' )  && ( get_theme_mod( 'freedom_header_logo_image','' ) == '') ) {
+    if ( function_exists( 'the_custom_logo' )  && ( get_theme_mod( 'freedom_header_logo_image','' ) == '' ) ) {
       the_custom_logo();
     }
   }
 }
+
+/**
+ * Function to transfer the Header Logo added in Customizer Options of theme to Site Logo in Site Identity section
+ */
+function freedom_site_logo_migrate() {
+	if ( function_exists( 'the_custom_logo' ) && ! has_custom_logo( $blog_id = 0 ) ) {
+		$logo_url = get_theme_mod( 'freedom_header_logo_image' );
+
+		if ( $logo_url ) {
+			$customizer_site_logo_id = attachment_url_to_postid( $logo_url );
+			set_theme_mod( 'custom_logo', $customizer_site_logo_id );
+
+			// Delete the old Site Logo theme_mod option.
+			remove_theme_mod( 'freedom_header_logo_image' );
+		}
+	}
+}
+
+add_action( 'after_setup_theme', 'freedom_site_logo_migrate' );
 
 /**************************************************************************************/
 
