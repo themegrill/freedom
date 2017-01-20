@@ -37,13 +37,13 @@ wp_head();
 						if( ( get_theme_mod( 'freedom_show_header_logo_text', 'text_only' ) == 'both' || get_theme_mod( 'freedom_show_header_logo_text', 'text_only' ) == 'logo_only' ) ) {
 						?>
 							<div id="header-logo-image">
-							<?php if ( get_theme_mod('freedom_header_logo_image', '') != '') { ?>
-								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_theme_mod( 'freedom_header_logo_image', '' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
-							<?php } ?>
 
 							<?php if (function_exists('the_custom_logo') && has_custom_logo( $blog_id = 0 )) {
-								freedom_the_custom_logo();
-							} ?>
+								the_custom_logo();
+							}
+							elseif ( get_theme_mod('freedom_header_logo_image', '') != '') { ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php echo get_theme_mod( 'freedom_header_logo_image', '' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></a>
+							<?php } ?>
 
 							</div><!-- #header-logo-image -->
 						<?php
