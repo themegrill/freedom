@@ -8,17 +8,41 @@
  */
 
 /****************************************************************************************/
+// Filter the get_header_image_tag() for option of adding the link back to home page option
+function freedom_header_image_markup( $html, $header, $attr ) {
+	$output = '';
+	$header_image = get_header_image();
+
+	if( ! empty( $header_image ) ) {
+		$output .= '<div class="header-image-wrap"><img src="' . esc_url( $header_image ) . '" class="header-image" width="' . get_custom_header()->width . '" height="' .  get_custom_header()->height . '" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '"></div>';
+	}
+
+	return $output;
+}
+
+function freedom_header_image_markup_filter() {
+	add_filter( 'get_header_image_tag', 'freedom_header_image_markup', 10, 3 );
+}
+
+add_action( 'freedom_header_image_markup_render','freedom_header_image_markup_filter' );
+
+/****************************************************************************************/
 
 if ( ! function_exists( 'freedom_render_header_image' ) ) :
 /**
  * Shows the small info text on top header part
  */
 function freedom_render_header_image() {
-	$header_image = get_header_image();
-	if( !empty( $header_image ) ) {
-	?>
-		<div class="header-image-wrap"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></div>
-	<?php
+	if ( function_exists( 'the_custom_header_markup' ) ) {
+		do_action( 'freedom_header_image_markup_render' );
+		the_custom_header_markup();
+	} else {
+		$header_image = get_header_image();
+		if ( ! empty( $header_image ) ) {
+		?>
+			<div class="header-image-wrap"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"></div>
+		<?php
+		}
 	}
 }
 endif;
