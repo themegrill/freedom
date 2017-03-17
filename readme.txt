@@ -53,6 +53,7 @@ and we will include it within the theme from next version update.
 = TBD =
 * Added - Support for Video Headers introduced in WordPress 4.7.
 * Tweaks - Remove the older header logo data.
+* Feature - Added compatibility for ThemeGrill Demo Importer plugin
 
 = Version 1.1.1 2016-12-26 =
 * Feature - Added the Custom Site Logo feature introduced in WordPress 4.5
