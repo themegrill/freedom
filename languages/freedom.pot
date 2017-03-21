@@ -508,7 +508,7 @@ msgid "Freedom"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://themegrill.com/themes/freedom/"
+msgid "https://themegrill.com/themes/freedom/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -517,12 +517,12 @@ msgid ""
 "theme supports custom header, custom background, custom menu, widget areas "
 "and has built-in options panel to configure primary color, site logo, "
 "slider, site layout, sidebar layout, category layout and many more. Get "
-"free support at http://themegrill.com/support-forum/ and check the demo at "
-"http://demo.themegrill.com/freedom/"
+"free support at https://themegrill.com/support-forum/ and check the demo at "
+"https://demo.themegrill.com/freedom/"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://themegrill.com"
+msgid "https://themegrill.com"
 msgstr ""
 
 #. Template Name of the plugin/theme

@@ -18,19 +18,19 @@ function freedom_customize_register($wp_customize) {
          //Add Theme instruction, Support Forum, Demo Link, Rating Link
          $important_links = array(
             'theme-info' => array(
-               'link' => esc_url('http://themegrill.com/themes/freedom/'),
+               'link' => esc_url('https://themegrill.com/themes/freedom/'),
                'text' => __('Theme Info', 'freedom'),
             ),
             'support' => array(
-               'link' => esc_url('http://themegrill.com/support-forum/'),
+               'link' => esc_url('https://themegrill.com/support-forum/'),
                'text' => __('Support Forum', 'freedom'),
             ),
             'documentation' => array(
-               'link' => esc_url('http://themegrill.com/theme-instruction/freedom/'),
+               'link' => esc_url('https://themegrill.com/theme-instruction/freedom/'),
                'text' => __('Documentation', 'freedom'),
             ),
             'demo' => array(
-               'link' => esc_url('http://demo.themegrill.com/freedom/'),
+               'link' => esc_url('https://demo.themegrill.com/freedom/'),
                'text' => __('View Demo', 'freedom'),
             ),
             'rating' => array(

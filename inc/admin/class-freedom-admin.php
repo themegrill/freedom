@@ -128,11 +128,11 @@ class Freedom_Admin {
 		</div>
 
 		<p class="freedom-actions">
-			<a href="<?php echo esc_url( 'http://themegrill.com/themes/freedom/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Theme Info', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Theme Info', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( 'http://demo.themegrill.com/freedom/' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'https://demo.themegrill.com/freedom/' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( 'http://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
 
 			<a href="<?php echo esc_url( 'https://wordpress.org/support/view/theme-reviews/freedom?filter=5#postform' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
 		</p>
@@ -190,25 +190,25 @@ class Freedom_Admin {
 					<div class="col">
 						<h3><?php esc_html_e( 'Documentation', 'freedom' ); ?></h3>
 						<p><?php esc_html_e( 'Please view our documentation page to setup the theme.', 'freedom' ) ?></p>
-						<p><a href="<?php echo esc_url( 'http://themegrill.com/theme-instruction/freedom/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Documentation', 'freedom' ); ?></a></p>
+						<p><a href="<?php echo esc_url( 'https://themegrill.com/theme-instruction/freedom/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Documentation', 'freedom' ); ?></a></p>
 					</div>
 
 					<div class="col">
 						<h3><?php esc_html_e( 'Got theme support question?', 'freedom' ); ?></h3>
 						<p><?php esc_html_e( 'Please put it in our dedicated support forum.', 'freedom' ) ?></p>
-						<p><a href="<?php echo esc_url( 'http://themegrill.com/support-forum/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Support Forum', 'freedom' ); ?></a></p>
+						<p><a href="<?php echo esc_url( 'https://themegrill.com/support-forum/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Support Forum', 'freedom' ); ?></a></p>
 					</div>
 
 					<div class="col">
 						<h3><?php esc_html_e( 'Need more features?', 'freedom' ); ?></h3>
 						<p><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ) ?></p>
-						<p><a href="<?php echo esc_url( 'http://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-secondary"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a></p>
+						<p><a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-secondary"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a></p>
 					</div>
 
 					<div class="col">
 						<h3><?php esc_html_e( 'Got sales related question?', 'freedom' ); ?></h3>
 						<p><?php esc_html_e( 'Please send it via our sales contact page.', 'freedom' ) ?></p>
-						<p><a href="<?php echo esc_url( 'http://themegrill.com/contact/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Contact Page', 'freedom' ); ?></a></p>
+						<p><a href="<?php echo esc_url( 'https://themegrill.com/contact/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Contact Page', 'freedom' ); ?></a></p>
 					</div>
 
 					<div class="col">
