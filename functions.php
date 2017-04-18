@@ -90,9 +90,9 @@ function freedom_setup() {
 	// Added WooCommerce support.
   add_theme_support( 'woocommerce' );
   add_theme_support( 'wc-product-gallery-zoom' );
-  d_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
   add_theme_support( 'wc-product-gallery-slider' );
-  
+
    /*
     * Switch default core markup for search form, comment form, and comments
     * to output valid HTML5.
