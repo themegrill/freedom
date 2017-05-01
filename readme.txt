@@ -50,7 +50,7 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
-= TBD =
+= Version 1.1.2 2017-05-01 =
 * Added - Support for Video Headers introduced in WordPress 4.7.
 * Tweaks - Remove the older header logo data.
 * Feature - Added compatibility for ThemeGrill Demo Importer plugin
