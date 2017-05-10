@@ -22,6 +22,7 @@ Resources packed within the theme.
 * HTML5 Shiv @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
 * The script jquery.cycle.all.js is dual licensed under GPL & MIT
 * Other custom js files are our own creation and is licensed under the same license as this theme.
+*TGM-Plugin-Activation by Thomas Griffin, Gary Jones, Juliette Reinders Folmer | GPL v2 Licensed
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
@@ -50,6 +51,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+=Version TBD =
+ * Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
+
 = Version 1.1.2 2017-05-01 =
 * Added - Support for Video Headers introduced in WordPress 4.7.
 * Tweaks - Remove the older header logo data.
