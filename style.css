@@ -626,6 +626,9 @@ li.default-menu {
 	color: #46c9be;
 }
 
+.main-navigation ul li.focus >ul{
+	display: block;
+ }
 /* =DROP DOWN
 ----------------------------------------------- */
 .main-navigation ul li ul,
