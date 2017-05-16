@@ -51,8 +51,12 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+
+=TBD=
+* Fix - Submenu issue fix
+
 =Version 1.1.3 2017-05-10 =
- * Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
+* Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
 
 = Version 1.1.2 2017-05-01 =
 * Added - Support for Video Headers introduced in WordPress 4.7.
