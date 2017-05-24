@@ -54,6 +54,7 @@ and we will include it within the theme from next version update.
 
 =TBD=
 * Fix - Submenu issue fix
+* Tweaks - Updated font awesome to `v4.7.0`
 
 =Version 1.1.3 2017-05-10 =
 * Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
