@@ -107,6 +107,14 @@ module.exports = function( grunt ){
 					dest: 'fontawesome/fonts/',    // destination folder
 					expand: true           // required when using cwd
 				}]
+			},
+			cycleall: {
+				files: [{
+					cwd: 'bower_components/jquery-cycle',  // set working folder / root to copy
+					src: '**/*.js',           // copy all files and subfolders
+					dest: 'js/',    // destination folder
+					expand: true           // required when using cwd
+				}]
 			}
 		},
 		bower: {
