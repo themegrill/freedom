@@ -134,7 +134,7 @@ class Freedom_Admin {
 
 			<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
 
-			<a href="<?php echo esc_url( 'https://wordpress.org/support/view/theme-reviews/freedom?filter=5#postform' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
+			<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/freedom/reviews/?filter=5' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
 		</p>
 
 		<h2 class="nav-tab-wrapper">
@@ -316,7 +316,7 @@ class Freedom_Admin {
 				</li>
 				<li><a href="<?php echo esc_url( 'https://wordpress.org/plugins/contact-form-7/' ); ?>" target="_blank"><?php esc_html_e( 'Contact Form 7', 'freedom' ); ?></a></li>
 				<li><a href="<?php echo esc_url( 'https://wordpress.org/plugins/wp-pagenavi/' ); ?>" target="_blank"><?php esc_html_e( 'WP-PageNavi', 'freedom' ); ?></a></li>
-								
+
 			</ol>
 
 		</div>
