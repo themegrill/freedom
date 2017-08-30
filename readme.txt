@@ -54,6 +54,7 @@ and we will include it within the theme from next version update.
 
 =TBD=
 * Fix - Submenu issue fix
+* Tweaks - Introduce selective refresh for site title and description
 
 =Version 1.1.3 2017-05-10 =
 * Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
