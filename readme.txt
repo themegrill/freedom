@@ -53,6 +53,7 @@ and we will include it within the theme from next version update.
 == Changelog ==
 
 =TBD=
+* Tweak - Add theme support for Jetpack Responsive Videos.
 * Fix - Submenu issue fix
 * Tweaks - Introduce selective refresh for site title and description
 
