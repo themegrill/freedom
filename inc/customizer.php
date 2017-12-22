@@ -8,6 +8,9 @@
  */
 
 function freedom_customize_register($wp_customize) {
+   // Transport postMessage variable set
+   $customizer_selective_refresh = isset( $wp_customize->selective_refresh ) ? 'postMessage' : 'refresh';
+
    $wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
    $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
@@ -446,29 +449,38 @@ function freedom_customize_register($wp_customize) {
    // Start of the Slider Options
    $wp_customize->add_panel('freedom_slider_options', array(
       'capabitity' => 'edit_theme_options',
-      'priority' => 515,
-      'title' => __('Slider', 'freedom')
+      'priority'   => 515,
+      'title'      => __('Slider', 'freedom')
    ));
 
    // slider activate option
    $wp_customize->add_section('freedom_slider_activate_section', array(
       'priority' => 1,
-      'title' => __('Activate slider', 'freedom'),
-      'panel' => 'freedom_slider_options'
+      'title'    => __('Activate slider', 'freedom'),
+      'panel'    => 'freedom_slider_options'
    ));
 
    $wp_customize->add_setting('freedom_activate_slider', array(
-      'default' => 0,
-      'capability' => 'edit_theme_options',
+      'default'           => 0,
+      'capability'        => 'edit_theme_options',
+      'transport'         => $customizer_selective_refresh,
       'sanitize_callback' => 'freedom_checkbox_sanitize'
    ));
 
    $wp_customize->add_control('freedom_activate_slider', array(
-      'type' => 'checkbox',
-      'label' => __('Check to activate slider.', 'freedom'),
-      'section' => 'freedom_slider_activate_section',
+      'type'     => 'checkbox',
+      'label'    => __('Check to activate slider.', 'freedom'),
+      'section'  => 'freedom_slider_activate_section',
       'settings' => 'freedom_activate_slider'
    ));
+
+   // Selective refresh for slider activation
+   if ( isset( $wp_customize->selective_refresh ) ) {
+      $wp_customize->selective_refresh->add_partial( 'freedom_activate_slider', array(
+         'selector'        => '#featured-slider',
+         'render_callback' => '',
+      ) );
+   }
 
    for ( $i = 1; $i <= 4; $i++ ) {
       // adding slider section
