@@ -55,7 +55,7 @@ and we will include it within the theme from next version update.
 =TBD=
 * Tweak - Add theme support for Jetpack Responsive Videos.
 * Fix - Submenu issue fix
-* Tweaks - Introduce selective refresh for site title and description
+* Tweaks - Introduce selective refresh and live js for site title, description and customizer option
 
 =Version 1.1.3 2017-05-10 =
 * Tweaks - Add TGMPA to recommend ThemeGrill Demo Importer plugin
