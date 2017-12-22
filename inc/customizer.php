@@ -373,21 +373,22 @@ function freedom_customize_register($wp_customize) {
 
    // Site primary color option
    $wp_customize->add_section('freedom_primary_color_setting', array(
-      'panel' => 'freedom_design_options',
+      'panel'    => 'freedom_design_options',
       'priority' => 7,
-      'title' => __('Primary color option', 'freedom')
+      'title'    => __('Primary color option', 'freedom')
    ));
 
    $wp_customize->add_setting('freedom_primary_color', array(
-      'default' => '#46c9be',
-      'capability' => 'edit_theme_options',
-      'sanitize_callback' => 'freedom_color_option_hex_sanitize',
+      'default'              => '#46c9be',
+      'capability'           => 'edit_theme_options',
+      'transport'            => 'postMessage',
+      'sanitize_callback'    => 'freedom_color_option_hex_sanitize',
       'sanitize_js_callback' => 'freedom_color_escaping_option_sanitize'
    ));
 
    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'freedom_primary_color', array(
-      'label' => __('This will reflect in links, buttons and many others. Choose a color to match your site.', 'freedom'),
-      'section' => 'freedom_primary_color_setting',
+      'label'    => __('This will reflect in links, buttons and many others. Choose a color to match your site.', 'freedom'),
+      'section'  => 'freedom_primary_color_setting',
       'settings' => 'freedom_primary_color'
    )));
 
