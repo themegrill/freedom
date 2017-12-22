@@ -20,4 +20,16 @@
 			$( '#site-description' ).text( to );
 		} );
 	} );
+
+	// Site layout
+	wp.customize( 'freedom_site_layout', function ( value ) {
+		value.bind( function ( layout ) {
+			var layout_options = layout;
+			if ( layout_options == 'wide' ) {
+				$( 'body' ).addClass( 'wide' );
+			} else if( layout == 'box' ) {
+				$( 'body' ).removeClass( 'wide' );
+			}
+		});
+	});
 })( jQuery );

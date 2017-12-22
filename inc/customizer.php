@@ -168,8 +168,9 @@ function freedom_customize_register($wp_customize) {
    ));
 
    $wp_customize->add_setting('freedom_site_layout', array(
-      'default' => 'wide',
-      'capability' => 'edit_theme_options',
+      'default'           => 'wide',
+      'capability'        => 'edit_theme_options',
+      'transport'         => 'postMessage',
       'sanitize_callback' => 'freedom_radio_select_sanitize'
    ));
 
