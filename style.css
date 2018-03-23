@@ -655,7 +655,7 @@ li.default-menu {
 	top: 40px;
 }
 .main-navigation ul li ul li {
-	float: left;
+	display: block;
 	text-align: left;
 	border-bottom: 1px solid #F8F8F8;
 }
@@ -676,7 +676,6 @@ li.default-menu {
 	padding: 6px 17px;
 	color: #333333;
 	background-color: #FFFFFF;
-	width: 166px;
 }
 .main-navigation ul li ul li a:hover, .main-navigation ul li ul li:hover > a, .main-navigation ul li.current-menu-item ul li a:hover {
 	color: #46c9be;
