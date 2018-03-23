@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Setup demo importer packages.
  *
  * @param  array $packages
+ *
  * @return array
  */
 function freedom_demo_importer_packages( $packages ) {
@@ -23,6 +24,11 @@ function freedom_demo_importer_packages( $packages ) {
 		'freedom-free' => array(
 			'name'    => esc_html__( 'Freedom', 'freedom' ),
 			'preview' => 'https://demo.themegrill.com/freedom/',
+		),
+		'freedom-pro'  => array(
+			'name'     => __( 'Freedom Pro', 'freedom' ),
+			'preview'  => 'https://demo.themegrill.com/freedom-pro/',
+			'pro_link' => 'https://themegrill.com/themes/freedom/',
 		),
 	);
 
