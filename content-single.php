@@ -2,9 +2,9 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package ThemeGrill
+ * @package    ThemeGrill
  * @subpackage Freedom
- * @since Freedom 1.0
+ * @since      Freedom 1.0
  */
 ?>
 
@@ -20,15 +20,15 @@
 	<?php freedom_entry_meta(); ?>
 
 	<div class="entry-content clearfix">
-		<?php 
-			the_content();
+		<?php
+		the_content();
 
-			wp_link_pages( array( 
-				'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Pages:', 'freedom' ),
-				'after'             => '</div>',
-				'link_before'       => '<span>',
-				'link_after'        => '</span>'
-	      ) );
+		wp_link_pages( array(
+			'before'      => '<div style="clear: both;"></div><div class="pagination clearfix">' . __( 'Pages:', 'freedom' ),
+			'after'       => '</div>',
+			'link_before' => '<span>',
+			'link_after'  => '</span>',
+		) );
 		?>
 	</div>
 
