@@ -546,7 +546,35 @@ function freedom_customize_register( $wp_customize ) {
 			'setting' => 'freedom_slider_link' . $i,
 		) );
 	}
-	// End of Slider Options
+	// End of Slider Options.
+
+	// Start of Additional option.
+	// Author bio option.
+	$wp_customize->add_panel( 'freedom_additional_option', array(
+		'capabitity' => 'edit_theme_options',
+		'priority'   => 520,
+		'title'      => __( 'Additional Options', 'freedom' ),
+	) );
+
+	$wp_customize->add_section( 'freedom_author_bio_section', array(
+		'priority' => 7,
+		'title'    => esc_html__( 'Author Bio Option', 'freedom' ),
+		'panel'    => 'freedom_additional_option',
+	) );
+
+	$wp_customize->add_setting( 'freedom_author_bio_setting', array(
+		'default'           => 0,
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'freedom_checkbox_sanitize',
+	) );
+
+	$wp_customize->add_control( 'freedom_author_bio_setting', array(
+		'type'    => 'checkbox',
+		'label'   => esc_html__( 'Check to display the author bio.', 'freedom' ),
+		'setting' => 'freedom_author_bio_setting',
+		'section' => 'freedom_author_bio_section',
+	) );
+	// End of additional option
 
 	// Start of data sanitization
 	function freedom_radio_select_sanitize( $input, $setting ) {
