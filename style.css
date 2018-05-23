@@ -1565,6 +1565,36 @@ a#scroll-up:hover {
    text-shadow: 1px 1px 1px #000000;
 }
 
+/* author-boi */
+
+.author-box {
+	padding: 20px;
+	border-radius: 5px;
+	background: #F8F8F8;
+}
+
+.author-img .avatar {
+	margin-bottom: 0;
+}
+
+.author-description-wrapper {
+    margin-left: 120px;
+}
+
+.author-box .author-name {
+	font-size: 18px;
+	padding-bottom: 10px;
+}
+
+.author-social-sites li {
+	float: left;
+	margin-right: 15px;
+}
+
+.author-social-sites li a .fa:hover {
+	color: #0099cc;
+}
+
 /* Remove the updated class from entry meta */
 .posted-on .updated {
   display: none;
