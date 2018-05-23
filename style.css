@@ -1839,6 +1839,13 @@ iframe#wp-custom-header-video {
    .gallery-columns-9 .gallery-item {
    	width:25%;
    }
+   .author-box .avatar {
+		float: none;
+		margin-bottom: 10px;
+	}
+	.author-description-wrapper {
+		margin-left: 0;
+	}
 }
 @media only screen and (max-width: 420px) {
    .gallery-columns-4 .gallery-item,
