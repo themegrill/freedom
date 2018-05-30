@@ -31,6 +31,11 @@ get_header(); ?>
 				</div>
 			<?php } ?>
 
+			<?php if ( get_theme_mod( 'freedom_related_posts_activate', 0 ) == 1 ) {
+					get_template_part( 'inc/related-posts' );
+			}
+			?>
+
 			<?php
 			do_action( 'freedom_before_comments_template' );
 			// If comments are open or we have at least one comment, load up the comment template
