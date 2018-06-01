@@ -32,7 +32,7 @@ get_header(); ?>
 			<?php } ?>
 
 			<?php if ( get_theme_mod( 'freedom_related_posts_activate', 0 ) == 1 ) {
-					get_template_part( 'inc/related-posts' );
+				get_template_part( 'inc/related-posts' );
 			}
 			?>
 
