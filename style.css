@@ -1490,7 +1490,6 @@ a#scroll-up:hover {
 /* Related Post */
 
 .related-posts-main-title {
-	margin-bottom: 30px;
 	font-size: 22px;
 }
 
@@ -1619,6 +1618,7 @@ a#scroll-up:hover {
 	padding: 20px;
 	border-radius: 5px;
 	background: #F8F8F8;
+	margin-bottom: 20px;
 }
 
 .author-img .avatar {
