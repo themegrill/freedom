@@ -1504,6 +1504,7 @@ a#scroll-up:hover {
 	float: left;
 	padding-left: 15px;
 	padding-right: 15px;
+	box-sizing: border-box;
 }
 
 .related-post-wrapper .entry-title {
@@ -1875,7 +1876,7 @@ iframe#wp-custom-header-video {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	
+
 	.related-post-wrapper .tg-one-third {
 		width: 100%;
 		float: none;
