@@ -51,6 +51,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= TBD =
+* Feature - Added Author Bio display option
+* Feature - Added Related posts display option
 
 = Version 1.1.4 2018-03-23 =
 * Tweak - Add theme support for Jetpack Responsive Videos.
