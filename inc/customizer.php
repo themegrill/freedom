@@ -574,6 +574,43 @@ function freedom_customize_register( $wp_customize ) {
 		'setting' => 'freedom_author_bio_setting',
 		'section' => 'freedom_author_bio_section',
 	) );
+
+	// Related posts display.
+	$wp_customize->add_section( 'freedom_related_posts_section', array(
+		'priority' => 4,
+		'title'    => esc_html__( 'Related Posts', 'freedom' ),
+		'panel'    => 'freedom_additional_option',
+	) );
+
+	$wp_customize->add_setting( 'freedom_related_posts_activate', array(
+		'default'           => 0,
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'freedom_checkbox_sanitize',
+	) );
+
+	$wp_customize->add_control( 'freedom_related_posts_activate', array(
+		'type'     => 'checkbox',
+		'label'    => __( 'Check to activate the related posts', 'freedom' ),
+		'section'  => 'freedom_related_posts_section',
+		'settings' => 'freedom_related_posts_activate',
+	) );
+
+	$wp_customize->add_setting( 'freedom_related_posts', array(
+		'default'           => 'categories',
+		'capability'        => 'edit_theme_options',
+		'sanitize_callback' => 'freedom_radio_select_sanitize',
+	) );
+
+	$wp_customize->add_control( 'freedom_related_posts', array(
+		'type'     => 'radio',
+		'label'    => __( 'Related Posts Must Be Shown As:', 'freedom' ),
+		'section'  => 'freedom_related_posts_section',
+		'settings' => 'freedom_related_posts',
+		'choices'  => array(
+			'categories' => __( 'Related Posts By Categories', 'freedom' ),
+			'tags'       => __( 'Related Posts By Tags', 'freedom' ),
+		),
+	) );
 	// End of additional option
 
 	// Start of data sanitization
