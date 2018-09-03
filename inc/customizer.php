@@ -23,60 +23,6 @@ function freedom_customize_register( $wp_customize ) {
 		) );
 	}
 
-	// Theme important links started
-	class Freedom_Important_Links extends WP_Customize_Control {
-
-		public $type = "freedom-important-links";
-
-		public function render_content() {
-			//Add Theme instruction, Support Forum, Demo Link, Rating Link
-			$important_links = array(
-				'theme-info'    => array(
-					'link' => esc_url( 'https://themegrill.com/themes/freedom/' ),
-					'text' => __( 'Theme Info', 'freedom' ),
-				),
-				'support'       => array(
-					'link' => esc_url( 'https://themegrill.com/support-forum/' ),
-					'text' => __( 'Support Forum', 'freedom' ),
-				),
-				'documentation' => array(
-					'link' => esc_url( 'https://themegrill.com/theme-instruction/freedom/' ),
-					'text' => __( 'Documentation', 'freedom' ),
-				),
-				'demo'          => array(
-					'link' => esc_url( 'https://demo.themegrill.com/freedom/' ),
-					'text' => __( 'View Demo', 'freedom' ),
-				),
-				'rating'        => array(
-					'link' => esc_url( 'http://wordpress.org/support/view/theme-reviews/freedom?filter=5' ),
-					'text' => __( 'Rate this theme', 'freedom' ),
-				),
-			);
-			foreach ( $important_links as $important_link ) {
-				echo '<p><a target="_blank" href="' . $important_link['link'] . '" >' . esc_attr( $important_link['text'] ) . ' </a></p>';
-			}
-		}
-
-	}
-
-	$wp_customize->add_section( 'freedom_important_links', array(
-		'priority' => 1,
-		'title'    => __( 'Freedom Important Links', 'freedom' ),
-	) );
-
-	/**
-	 * This setting has the dummy Sanitization function as it contains no value to be sanitized
-	 */
-	$wp_customize->add_setting( 'freedom_important_links', array(
-		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'freedom_links_sanitize',
-	) );
-
-	$wp_customize->add_control( new Freedom_Important_Links( $wp_customize, 'important_links', array(
-		'section'  => 'freedom_important_links',
-		'settings' => 'freedom_important_links',
-	) ) );
-	// Theme Important Links Ended
 
 	// Start of the Header Options
 	// Header Options Area
