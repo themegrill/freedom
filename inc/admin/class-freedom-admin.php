@@ -446,7 +446,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 						<td></td>
 						<td></td>
 						<td class="btn-wrapper">
-							<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'https://themegrill.com/themes/freedom/?utm_source=freedom-free-vs-pro-table&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Pro', 'foodhunt' ); ?></a>
+							<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'https://themegrill.com/themes/freedom/?utm_source=freedom-free-vs-pro-table&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
 						</td>
 					</tr>
 					</tbody>
