@@ -135,7 +135,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 
 				<a href="<?php echo esc_url( 'https://demo.themegrill.com/freedom/' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
 
-				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
+				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
 
 				<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/freedom/reviews/?filter=5' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
 			</p>
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 							<h3><?php esc_html_e( 'Need more features?', 'freedom' ); ?></h3>
 							<p><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ) ?></p>
 							<p>
-								<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-secondary"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
+								<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
 							</p>
 						</div>
 
@@ -441,6 +441,13 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 						<td><h3><?php esc_html_e( 'Support', 'freedom' ); ?></h3></td>
 						<td><?php esc_html_e( 'Forum', 'freedom' ); ?></td>
 						<td><?php esc_html_e( 'Forum + Emails/Support Ticket', 'freedom' ); ?></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td class="btn-wrapper">
+							<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'https://themegrill.com/themes/freedom/?utm_source=freedom-free-vs-pro-table&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Pro', 'foodhunt' ); ?></a>
+						</td>
 					</tr>
 					</tbody>
 				</table>
