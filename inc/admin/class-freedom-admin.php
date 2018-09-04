@@ -63,7 +63,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 				update_option( 'freedom_admin_notice_welcome', 1 );
 
 				// No option? Let run the notice wizard again..
-			} else if ( ! get_option( 'freedom_admin_notice_welcome' ) ) {
+			} elseif ( ! get_option( 'freedom_admin_notice_welcome' ) ) {
 				add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
 			}
 		}
@@ -131,11 +131,11 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 			</div>
 
 			<p class="freedom-actions">
-				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Theme Info', 'freedom' ); ?></a>
+				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=theme-info-link&utm_campaign=theme-info' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Theme Info', 'freedom' ); ?></a>
 
 				<a href="<?php echo esc_url( 'https://demo.themegrill.com/freedom/' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Demo', 'freedom' ); ?></a>
 
-				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
+				<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ); ?>" class="button button-primary docs" target="_blank"><?php esc_html_e( 'View PRO version', 'freedom' ); ?></a>
 
 				<a href="<?php echo esc_url( 'https://wordpress.org/support/theme/freedom/reviews/?filter=5' ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'Rate this theme', 'freedom' ); ?></a>
 			</p>
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 							<h3><?php esc_html_e( 'Documentation', 'freedom' ); ?></h3>
 							<p><?php esc_html_e( 'Please view our documentation page to setup the theme.', 'freedom' ) ?></p>
 							<p>
-								<a href="<?php echo esc_url( 'https://themegrill.com/theme-instruction/freedom/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Documentation', 'freedom' ); ?></a>
+								<a href="<?php echo esc_url( 'https://docs.themegrill.com/freedom/?utm_source=freedom-about&utm_medium=documentation-link&utm_campaign=documentation' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Documentation', 'freedom' ); ?></a>
 							</p>
 						</div>
 
@@ -221,7 +221,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 							<h3><?php esc_html_e( 'Got theme support question?', 'freedom' ); ?></h3>
 							<p><?php esc_html_e( 'Please put it in our dedicated support forum.', 'freedom' ) ?></p>
 							<p>
-								<a href="<?php echo esc_url( 'https://themegrill.com/support-forum/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Support Forum', 'freedom' ); ?></a>
+								<a href="<?php echo esc_url( 'https://themegrill.com/support-forum/?utm_source=freedom-about&utm_medium=support-forum-link&utm_campaign=support-forum' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Support Forum', 'freedom' ); ?></a>
 							</p>
 						</div>
 
@@ -229,7 +229,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 							<h3><?php esc_html_e( 'Need more features?', 'freedom' ); ?></h3>
 							<p><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ) ?></p>
 							<p>
-								<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom-pro/' ); ?>" class="button button-secondary"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
+								<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
 							</p>
 						</div>
 
@@ -237,7 +237,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 							<h3><?php esc_html_e( 'Got sales related question?', 'freedom' ); ?></h3>
 							<p><?php esc_html_e( 'Please send it via our sales contact page.', 'freedom' ) ?></p>
 							<p>
-								<a href="<?php echo esc_url( 'https://themegrill.com/contact/' ); ?>" class="button button-secondary"><?php esc_html_e( 'Contact Page', 'freedom' ); ?></a>
+								<a href="<?php echo esc_url( 'https://themegrill.com/contact/?utm_source=freedom-about&utm_medium=contact-page-link&utm_campaign=contact-page' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Contact Page', 'freedom' ); ?></a>
 							</p>
 						</div>
 
@@ -441,6 +441,13 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 						<td><h3><?php esc_html_e( 'Support', 'freedom' ); ?></h3></td>
 						<td><?php esc_html_e( 'Forum', 'freedom' ); ?></td>
 						<td><?php esc_html_e( 'Forum + Emails/Support Ticket', 'freedom' ); ?></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td class="btn-wrapper">
+							<a href="<?php echo esc_url( apply_filters( 'freedom_pro_theme_url', 'https://themegrill.com/themes/freedom/?utm_source=freedom-free-vs-pro-table&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ) ); ?>" class="button button-secondary docs" target="_blank"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
+						</td>
 					</tr>
 					</tbody>
 				</table>

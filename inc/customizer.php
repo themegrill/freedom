@@ -23,60 +23,55 @@ function freedom_customize_register( $wp_customize ) {
 		) );
 	}
 
-	// Theme important links started
-	class Freedom_Important_Links extends WP_Customize_Control {
+	/**
+	 * Class to include upsell link campaign for theme.
+	 *
+	 * Class FREEDOM_Upsell_Section
+	 */
+	class FREEDOM_Upsell_Section extends WP_Customize_Section {
+		public $type = 'freedom-upsell-section';
+		public $url  = '';
+		public $id   = '';
 
-		public $type = "freedom-important-links";
+		/**
+		 * Gather the parameters passed to client JavaScript via JSON.
+		 *
+		 * @return array The array to be exported to the client as JSON.
+		 */
+		public function json() {
+			$json        = parent::json();
+			$json['url'] = esc_url( $this->url );
+			$json['id']  = $this->id;
 
-		public function render_content() {
-			//Add Theme instruction, Support Forum, Demo Link, Rating Link
-			$important_links = array(
-				'theme-info'    => array(
-					'link' => esc_url( 'https://themegrill.com/themes/freedom/' ),
-					'text' => __( 'Theme Info', 'freedom' ),
-				),
-				'support'       => array(
-					'link' => esc_url( 'https://themegrill.com/support-forum/' ),
-					'text' => __( 'Support Forum', 'freedom' ),
-				),
-				'documentation' => array(
-					'link' => esc_url( 'https://themegrill.com/theme-instruction/freedom/' ),
-					'text' => __( 'Documentation', 'freedom' ),
-				),
-				'demo'          => array(
-					'link' => esc_url( 'https://demo.themegrill.com/freedom/' ),
-					'text' => __( 'View Demo', 'freedom' ),
-				),
-				'rating'        => array(
-					'link' => esc_url( 'http://wordpress.org/support/view/theme-reviews/freedom?filter=5' ),
-					'text' => __( 'Rate this theme', 'freedom' ),
-				),
-			);
-			foreach ( $important_links as $important_link ) {
-				echo '<p><a target="_blank" href="' . $important_link['link'] . '" >' . esc_attr( $important_link['text'] ) . ' </a></p>';
-			}
+			return $json;
 		}
 
+		/**
+		 * An Underscore (JS) template for rendering this section.
+		 */
+		protected function render_template() {
+			?>
+			<li id="accordion-section-{{ data.id }}" class="freedom-upsell-accordion-section control-section-{{ data.type }} cannot-expand accordion-section">
+				<h3 class="accordion-section-title"><a href="{{{ data.url }}}" target="_blank">{{ data.title }}</a></h3>
+			</li>
+			<?php
+		}
 	}
 
-	$wp_customize->add_section( 'freedom_important_links', array(
-		'priority' => 1,
-		'title'    => __( 'Freedom Important Links', 'freedom' ),
-	) );
+// Register `FREEDOM_Upsell_Section` type section.
+	$wp_customize->register_section_type( 'FREEDOM_Upsell_Section' );
 
-	/**
-	 * This setting has the dummy Sanitization function as it contains no value to be sanitized
-	 */
-	$wp_customize->add_setting( 'freedom_important_links', array(
-		'capability'        => 'edit_theme_options',
-		'sanitize_callback' => 'freedom_links_sanitize',
-	) );
-
-	$wp_customize->add_control( new Freedom_Important_Links( $wp_customize, 'important_links', array(
-		'section'  => 'freedom_important_links',
-		'settings' => 'freedom_important_links',
-	) ) );
-	// Theme Important Links Ended
+// Add `FREEDOM_Upsell_Section` to display pro link.
+	$wp_customize->add_section(
+		new FREEDOM_Upsell_Section( $wp_customize, 'freedom_upsell_section',
+			array(
+				'title'      => esc_html__( 'View PRO version', 'freedom' ),
+				'url'        => 'https://themegrill.com/themes/freedom/?utm_source=freedom-customizer&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro',
+				'capability' => 'edit_theme_options',
+				'priority'   => 1,
+			)
+		)
+	);
 
 	// Start of the Header Options
 	// Header Options Area
@@ -706,18 +701,38 @@ add_action( 'customize_controls_print_footer_scripts', 'freedom_customizer_custo
 function freedom_customizer_custom_scripts() { ?>
 	<style>
 		/* Theme Instructions Panel CSS */
-		li#accordion-section-freedom_important_links h3.accordion-section-title, li#accordion-section-freedom_important_links h3.accordion-section-title:focus {
+		li#accordion-section-freedom_upsell_section h3.accordion-section-title {
 			background-color: #46C9BE !important;
-			color: #fff !important;
+			border-left-color: #28968d !important;
 		}
 
-		li#accordion-section-freedom_important_links h3.accordion-section-title:hover {
-			background-color: #46C9BE !important;
-			color: #fff !important;
+		#accordion-section-freedom_upsell_section h3 a:after {
+			content: '\f345';
+			color: #fff;
+			position: absolute;
+			top: 12px;
+			right: 10px;
+			z-index: 1;
+			font: 400 20px/1 dashicons;
+			speak: none;
+			display: block;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			text-decoration: none!important;
 		}
 
-		li#accordion-section-freedom_important_links h3.accordion-section-title:after {
+		li#accordion-section-freedom_upsell_section h3.accordion-section-title a {
+			display: block;
 			color: #fff !important;
+			text-decoration: none;
+		}
+
+		li#accordion-section-freedom_upsell_section h3.accordion-section-title a:focus {
+			box-shadow: none;
+		}
+
+		li#accordion-section-freedom_upsell_section h3.accordion-section-title:hover {
+			background-color: #37bdb2 !important;
 		}
 
 		/* Upsell button CSS */
@@ -744,6 +759,23 @@ function freedom_customizer_custom_scripts() { ?>
 			background: #2380BA;
 		}
 	</style>
+	<script>
+		( function ( $, api ) {
+			api.sectionConstructor['freedom-upsell-section'] = api.Section.extend( {
+
+				// No events for this type of section.
+				attachEvents : function () {
+				},
+
+				// Always make the section active.
+				isContextuallyActive : function () {
+					return true;
+				}
+			} );
+		} )( jQuery, wp.customize );
+
+	</script>
+
 	<?php
 }
 
