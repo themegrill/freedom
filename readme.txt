@@ -53,6 +53,7 @@ and we will include it within the theme from next version update.
 == Changelog ==
 = TBD =
 * Tweak - Added width and height for slider
+* Update - Upsell link
 
 = Version 1.1.5 2018-06-01 =
 * Feature - Added Author Bio display option
