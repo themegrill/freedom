@@ -678,21 +678,6 @@ function freedom_customize_partial_blogdescription() {
 
 /*****************************************************************************************/
 
-/**
- * Enqueue scripts for customizer
- */
-function freedom_customizer_js() {
-	wp_enqueue_script( 'freedom_customizer_script', get_template_directory_uri() . '/js/freedom_customizer.js', array( "jquery" ), 'false', true );
-
-	wp_localize_script( 'freedom_customizer_script', 'freedom_customizer_obj', array(
-
-		'pro' => __( 'View PRO version', 'freedom' ),
-
-	) );
-}
-
-add_action( 'customize_controls_enqueue_scripts', 'freedom_customizer_js' );
-
 /*
  * Custom Scripts
  */
