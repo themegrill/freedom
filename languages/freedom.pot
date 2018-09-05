@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Freedom 1.1.5\n"
+"Project-Id-Version: Freedom 1.1.6\n"
 "Report-Msgid-Bugs-To: themegrill@gmail.com\n"
-"POT-Creation-Date: 2018-06-01 04:51:42+00:00\n"
+"POT-Creation-Date: 2018-09-05 09:10:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,43 +25,43 @@ msgstr ""
 msgid "It looks like nothing was found at this location. Try the search below."
 msgstr ""
 
-#: archive.php:33 inc/header-functions.php:132
+#: archive.php:33 inc/header-functions.php:134
 msgid "Author: %s"
 msgstr ""
 
-#: archive.php:41 inc/header-functions.php:140
+#: archive.php:41 inc/header-functions.php:142
 msgid "Day: %s"
 msgstr ""
 
-#: archive.php:44 inc/header-functions.php:143
+#: archive.php:44 inc/header-functions.php:145
 msgid "Month: %s"
 msgstr ""
 
-#: archive.php:47 inc/header-functions.php:146
+#: archive.php:47 inc/header-functions.php:148
 msgid "Year: %s"
 msgstr ""
 
-#: archive.php:50 inc/header-functions.php:149
+#: archive.php:50 inc/header-functions.php:151
 msgid "Asides"
 msgstr ""
 
-#: archive.php:53 inc/header-functions.php:152
+#: archive.php:53 inc/header-functions.php:154
 msgid "Images"
 msgstr ""
 
-#: archive.php:56 inc/header-functions.php:155
+#: archive.php:56 inc/header-functions.php:157
 msgid "Videos"
 msgstr ""
 
-#: archive.php:59 inc/header-functions.php:158
+#: archive.php:59 inc/header-functions.php:160
 msgid "Quotes"
 msgstr ""
 
-#: archive.php:62 inc/header-functions.php:161
+#: archive.php:62 inc/header-functions.php:163
 msgid "Links"
 msgstr ""
 
-#: archive.php:65 inc/header-functions.php:164 sidebar-left.php:29
+#: archive.php:65 inc/header-functions.php:166 sidebar-left.php:29
 #: sidebar.php:29
 msgid "Archives"
 msgstr ""
@@ -120,19 +120,20 @@ msgstr ""
 msgid "Get started with Freedom"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:134 inc/customizer.php:36
+#: inc/admin/class-freedom-admin.php:134
 msgid "Theme Info"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:136 inc/customizer.php:48
+#: inc/admin/class-freedom-admin.php:136
 msgid "View Demo"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:138 inc/customizer.php:694
+#: inc/admin/class-freedom-admin.php:138 inc/customizer.php:68
+#: inc/customizer.php:689
 msgid "View PRO version"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:140 inc/customizer.php:52
+#: inc/admin/class-freedom-admin.php:140
 msgid "Rate this theme"
 msgstr ""
 
@@ -161,7 +162,6 @@ msgid "Customize"
 msgstr ""
 
 #: inc/admin/class-freedom-admin.php:213 inc/admin/class-freedom-admin.php:216
-#: inc/customizer.php:44
 msgid "Documentation"
 msgstr ""
 
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Please put it in our dedicated support forum."
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:224 inc/customizer.php:40
+#: inc/admin/class-freedom-admin.php:224
 msgid "Support Forum"
 msgstr ""
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Upgrade to PRO version for more exciting features."
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:232
+#: inc/admin/class-freedom-admin.php:232 inc/admin/class-freedom-admin.php:449
 msgid "View Pro"
 msgstr ""
 
@@ -269,11 +269,11 @@ msgstr ""
 msgid "Freedom"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:381 inc/demo-config.php:29
+#: inc/admin/class-freedom-admin.php:381 inc/demo-config.php:26
 msgid "Freedom Pro"
 msgstr ""
 
-#: inc/admin/class-freedom-admin.php:386 inc/customizer.php:453
+#: inc/admin/class-freedom-admin.php:386 inc/customizer.php:448
 msgid "Slider"
 msgstr ""
 
@@ -361,216 +361,212 @@ msgstr ""
 msgid "No Sidebar Content Centered"
 msgstr ""
 
-#: inc/customizer.php:64
-msgid "Freedom Important Links"
-msgstr ""
-
-#: inc/customizer.php:86
+#: inc/customizer.php:81
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:92
+#: inc/customizer.php:87
 msgid "Header Logo"
 msgstr ""
 
-#: inc/customizer.php:104
+#: inc/customizer.php:99
 msgid "Upload logo for your header."
 msgstr ""
 
-#: inc/customizer.php:105
+#: inc/customizer.php:100
 msgid ""
 "%sInfo:%s This option will be removed in upcoming update. Please go to Site "
 "Identity section to upload the theme logo."
 msgstr ""
 
-#: inc/customizer.php:114
+#: inc/customizer.php:109
 msgid "Show"
 msgstr ""
 
-#: inc/customizer.php:126
+#: inc/customizer.php:121
 msgid "Choose the option that you want."
 msgstr ""
 
-#: inc/customizer.php:129
+#: inc/customizer.php:124
 msgid "Header Logo Only"
 msgstr ""
 
-#: inc/customizer.php:130
+#: inc/customizer.php:125
 msgid "Header Text Only"
 msgstr ""
 
-#: inc/customizer.php:131
+#: inc/customizer.php:126
 msgid "Show Both"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:127
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer.php:139
+#: inc/customizer.php:134
 msgid "Responsive Menu Style"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:144
 msgid "Switch to new responsive menu"
 msgstr ""
 
-#: inc/customizer.php:160
+#: inc/customizer.php:155
 msgid "Design"
 msgstr ""
 
-#: inc/customizer.php:166
+#: inc/customizer.php:161
 msgid "Site Layout"
 msgstr ""
 
-#: inc/customizer.php:178
+#: inc/customizer.php:173
 msgid "Choose your site layout. The change is reflected in whole site."
 msgstr ""
 
-#: inc/customizer.php:180
+#: inc/customizer.php:175
 msgid "Boxed layout"
 msgstr ""
 
-#: inc/customizer.php:181
+#: inc/customizer.php:176
 msgid "Wide layout"
 msgstr ""
 
-#: inc/customizer.php:253
+#: inc/customizer.php:248
 msgid "Default layout"
 msgstr ""
 
-#: inc/customizer.php:265
+#: inc/customizer.php:260
 msgid ""
 "Select default layout. This layout will be reflected in whole site "
 "archives, categories, search page etc. The layout for a single post and "
 "page can be controlled from below options."
 msgstr ""
 
-#: inc/customizer.php:279
+#: inc/customizer.php:274
 msgid "Default layout for pages only"
 msgstr ""
 
-#: inc/customizer.php:291
+#: inc/customizer.php:286
 msgid ""
 "Select default layout for pages. This layout will be reflected in all pages "
 "unless unique layout is set for specific page."
 msgstr ""
 
-#: inc/customizer.php:305
+#: inc/customizer.php:300
 msgid "Default layout for single posts only"
 msgstr ""
 
-#: inc/customizer.php:317
+#: inc/customizer.php:312
 msgid ""
 "Select default layout for single posts. This layout will be reflected in "
 "all single posts unless unique layout is set for specific post."
 msgstr ""
 
-#: inc/customizer.php:331
+#: inc/customizer.php:326
 msgid "Posts page listing display type"
 msgstr ""
 
-#: inc/customizer.php:343
+#: inc/customizer.php:338
 msgid ""
 "Choose the display type for the latest posts view or posts page view "
 "(static front page)."
 msgstr ""
 
-#: inc/customizer.php:345 inc/customizer.php:368
+#: inc/customizer.php:340 inc/customizer.php:363
 msgid "Photo blogging view (two column)"
 msgstr ""
 
-#: inc/customizer.php:346 inc/customizer.php:369
+#: inc/customizer.php:341 inc/customizer.php:364
 msgid "Normal view"
 msgstr ""
 
-#: inc/customizer.php:354
+#: inc/customizer.php:349
 msgid "Archive/Category posts listing display type"
 msgstr ""
 
-#: inc/customizer.php:366
+#: inc/customizer.php:361
 msgid "Choose the display type for the archive/category view."
 msgstr ""
 
-#: inc/customizer.php:378
+#: inc/customizer.php:373
 msgid "Primary color option"
 msgstr ""
 
-#: inc/customizer.php:389
+#: inc/customizer.php:384
 msgid ""
 "This will reflect in links, buttons and many others. Choose a color to "
 "match your site."
 msgstr ""
 
-#: inc/customizer.php:413
+#: inc/customizer.php:408
 msgid "Custom CSS"
 msgstr ""
 
-#: inc/customizer.php:425
+#: inc/customizer.php:420
 msgid "Write your custom css."
 msgstr ""
 
-#: inc/customizer.php:459
+#: inc/customizer.php:454
 msgid "Activate slider"
 msgstr ""
 
-#: inc/customizer.php:471
+#: inc/customizer.php:466
 msgid "Check to activate slider."
 msgstr ""
 
-#: inc/customizer.php:480
+#: inc/customizer.php:475
 msgid "Slider #%1$s"
 msgstr ""
 
-#: inc/customizer.php:492
+#: inc/customizer.php:487
 msgid "Upload Image"
 msgstr ""
 
-#: inc/customizer.php:505
+#: inc/customizer.php:500
 msgid "Enter title for this slide"
 msgstr ""
 
-#: inc/customizer.php:518
+#: inc/customizer.php:513
 msgid "Enter description for this slide"
 msgstr ""
 
-#: inc/customizer.php:531
+#: inc/customizer.php:526
 msgid "Enter the button text."
 msgstr ""
 
-#: inc/customizer.php:544
+#: inc/customizer.php:539
 msgid "Enter link to redirect for the slide"
 msgstr ""
 
-#: inc/customizer.php:556
+#: inc/customizer.php:551
 msgid "Additional Options"
 msgstr ""
 
-#: inc/customizer.php:561
+#: inc/customizer.php:556
 msgid "Author Bio Option"
 msgstr ""
 
-#: inc/customizer.php:573
+#: inc/customizer.php:568
 msgid "Check to display the author bio."
 msgstr ""
 
-#: inc/customizer.php:581
+#: inc/customizer.php:576
 msgid "Related Posts"
 msgstr ""
 
-#: inc/customizer.php:593
+#: inc/customizer.php:588
 msgid "Check to activate the related posts"
 msgstr ""
 
-#: inc/customizer.php:606
+#: inc/customizer.php:601
 msgid "Related Posts Must Be Shown As:"
 msgstr ""
 
-#: inc/customizer.php:610
+#: inc/customizer.php:605
 msgid "Related Posts By Categories"
 msgstr ""
 
-#: inc/customizer.php:611
+#: inc/customizer.php:606
 msgid "Related Posts By Tags"
 msgstr ""
 
@@ -660,11 +656,11 @@ msgstr ""
 msgid "."
 msgstr ""
 
-#: inc/header-functions.php:168
+#: inc/header-functions.php:170
 msgid "Page NOT Found"
 msgstr ""
 
-#: inc/header-functions.php:170
+#: inc/header-functions.php:172
 msgid "Search Results"
 msgstr ""
 
