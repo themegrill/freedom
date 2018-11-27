@@ -69,7 +69,9 @@ if ( ! function_exists( 'freedom_featured_image_slider' ) ) :
 						$freedom_slider_button_text = get_theme_mod( 'freedom_slider_button_text' . $i, '' );
 						$freedom_slider_link        = get_theme_mod( 'freedom_slider_link' . $i, '#' );
 						$attachment_to_id           = attachment_url_to_postid( $freedom_slider_image );
-						$image_value = wp_get_attachment_image_src( $attachment_to_id, 'full');
+						$image_value                = wp_get_attachment_image_src( $attachment_to_id, 'full');
+						$img_altr                   = get_post_meta( $attachment_to_id, '_wp_attachment_image_alt', true );
+						$img_alt                    = ! empty( $img_altr ) ? $img_altr : $freedom_slider_title;
 
 						if ( ! empty( $freedom_header_title ) || ! empty( $freedom_slider_text ) || ! empty( $freedom_slider_image ) ) {
 							if ( $i == 1 ) {
@@ -81,7 +83,7 @@ if ( ! function_exists( 'freedom_featured_image_slider' ) ) :
 							?>
 							<div class="<?php echo $classes; ?>">
 								<figure>
-									<img width="<?php echo esc_attr($image_value[1]); ?>" height="<?php echo esc_attr($image_value[2]); ?>" alt="<?php echo esc_attr( $freedom_slider_title ); ?>" src="<?php echo esc_url( $freedom_slider_image ); ?>">
+									<img width="<?php echo esc_attr($image_value[1]); ?>" height="<?php echo esc_attr($image_value[2]); ?>" alt="<?php echo esc_attr( $img_alt ); ?>" src="<?php echo esc_url( $freedom_slider_image ); ?>">
 								</figure>
 								<div class="entry-container">
 									<?php if ( ! empty( $freedom_slider_title ) || ! empty( $freedom_slider_text ) ) { ?>
