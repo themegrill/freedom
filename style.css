@@ -1203,6 +1203,10 @@ li.default-menu {
 	padding-top: 5px;
 }
 
+ul.wp-block-gallery.columns-3 {
+	padding: 0;
+}
+
 /* =COMMENTS
 ----------------------------------------------- */
 #comments {
