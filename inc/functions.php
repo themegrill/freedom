@@ -42,7 +42,7 @@ function freedom_scripts_styles_method() {
 	 * Enqueue Slider setup js file.
 	 */
 	if ( is_front_page() && get_theme_mod( 'freedom_activate_slider', '0' ) == '1' ) {
-		wp_enqueue_script( 'freedom_slider', FREEDOM_JS_URL . '/freedom-slider-setting.js', array( 'jquery_cycle' ), false, true );
+		wp_enqueue_script( 'jquery_cycle');
 	}
 	wp_enqueue_script( 'freedom-navigation', FREEDOM_JS_URL . '/navigation.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'freedom-custom', FREEDOM_JS_URL . '/freedom-custom.js', array( 'jquery' ) );
