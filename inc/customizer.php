@@ -8,6 +8,12 @@
  */
 
 function freedom_customize_register( $wp_customize ) {
+
+	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-custom-css-control.php';
+	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-image-radio-control.php';
+	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-text-area-control.php';
+	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-upsell-section.php';
+
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
@@ -21,41 +27,6 @@ function freedom_customize_register( $wp_customize ) {
 			'selector'        => '#site-description',
 			'render_callback' => 'freedom_customize_partial_blogdescription',
 		) );
-	}
-
-	/**
-	 * Class to include upsell link campaign for theme.
-	 *
-	 * Class FREEDOM_Upsell_Section
-	 */
-	class FREEDOM_Upsell_Section extends WP_Customize_Section {
-		public $type = 'freedom-upsell-section';
-		public $url  = '';
-		public $id   = '';
-
-		/**
-		 * Gather the parameters passed to client JavaScript via JSON.
-		 *
-		 * @return array The array to be exported to the client as JSON.
-		 */
-		public function json() {
-			$json        = parent::json();
-			$json['url'] = esc_url( $this->url );
-			$json['id']  = $this->id;
-
-			return $json;
-		}
-
-		/**
-		 * An Underscore (JS) template for rendering this section.
-		 */
-		protected function render_template() {
-			?>
-			<li id="accordion-section-{{ data.id }}" class="freedom-upsell-accordion-section control-section-{{ data.type }} cannot-expand accordion-section">
-				<h3 class="accordion-section-title"><a href="{{{ data.url }}}" target="_blank">{{ data.title }}</a></h3>
-			</li>
-			<?php
-		}
 	}
 
 // Register `FREEDOM_Upsell_Section` type section.
@@ -162,70 +133,6 @@ function freedom_customize_register( $wp_customize ) {
 		),
 		'section' => 'freedom_site_layout_setting',
 	) );
-
-	class Freedom_Image_Radio_Control extends WP_Customize_Control {
-
-		public function render_content() {
-
-			if ( empty( $this->choices ) ) {
-				return;
-			}
-
-			$name = '_customize-radio-' . $this->id;
-
-			?>
-			<style>
-				#freedom-img-container .freedom-radio-img-img {
-					border: 3px solid #DEDEDE;
-					margin: 0 5px 5px 0;
-					cursor: pointer;
-					border-radius: 3px;
-					-moz-border-radius: 3px;
-					-webkit-border-radius: 3px;
-				}
-
-				#freedom-img-container .freedom-radio-img-selected {
-					border: 3px solid #AAA;
-					border-radius: 3px;
-					-moz-border-radius: 3px;
-					-webkit-border-radius: 3px;
-				}
-
-				input[type=checkbox]:before {
-					content: '';
-					margin: -3px 0 0 -4px;
-				}
-			</style>
-			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-			<ul class="controls" id='freedom-img-container'>
-				<?php
-				foreach ( $this->choices as $value => $label ) :
-					$class = ( $this->value() == $value ) ? 'freedom-radio-img-selected freedom-radio-img-img' : 'freedom-radio-img-img';
-					?>
-					<li style="display: inline;">
-						<label>
-							<input <?php $this->link(); ?>style='display:none' type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" <?php $this->link();
-							checked( $this->value(), $value ); ?> />
-							<img src='<?php echo esc_html( $label ); ?>' class='<?php echo $class; ?>' />
-						</label>
-					</li>
-				<?php
-				endforeach;
-				?>
-			</ul>
-			<script type="text/javascript">
-				jQuery( document ).ready( function ( $ ) {
-					$( '.controls#freedom-img-container li img' ).click( function () {
-						$( '.controls#freedom-img-container li' ).each( function () {
-							$( this ).find( 'img' ).removeClass( 'freedom-radio-img-selected' );
-						} );
-						$( this ).addClass( 'freedom-radio-img-selected' );
-					} );
-				} );
-			</script>
-			<?php
-		}
-	}
 
 	// default layout setting
 	$wp_customize->add_section( 'freedom_default_layout_setting', array(
@@ -372,21 +279,6 @@ function freedom_customize_register( $wp_customize ) {
 	) ) );
 
 	if ( ! function_exists( 'wp_update_custom_css_post' ) ) {
-		// Custom CSS setting
-		class Freedom_Custom_CSS_Control extends WP_Customize_Control {
-
-			public $type = 'custom_css';
-
-			public function render_content() {
-				?>
-				<label>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-					<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-				</label>
-				<?php
-			}
-
-		}
 
 		$wp_customize->add_section( 'freedom_custom_css_setting', array(
 			'priority' => 9,
@@ -409,22 +301,6 @@ function freedom_customize_register( $wp_customize ) {
 
 	}
 	// End of Design Options
-
-	// Adding Text Area Control For Use In Customizer
-	class Freedom_Text_Area_Control extends WP_Customize_Control {
-
-		public $type = 'text_area';
-
-		public function render_content() {
-			?>
-			<label>
-				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-				<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-			</label>
-			<?php
-		}
-
-	}
 
 	// Start of the Slider Options
 	$wp_customize->add_panel( 'freedom_slider_options', array(
@@ -688,7 +564,7 @@ function freedom_customizer_custom_scripts() { ?>
 			display: block;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			text-decoration: none!important;
+			text-decoration: none !important;
 		}
 
 		li#accordion-section-freedom_upsell_section h3.accordion-section-title a {
