@@ -55,6 +55,7 @@ and we will include it within the theme from next version update.
 * Fix - Gallery padding for Gutenberg
 * Tweak - Add alt attributes to missed img tags
 * Tweak - Utilize single custom JS file for required theme JS settings.
+* Tweak - separate customize control class via different file
 * Tweak - Modify pingback url autodiscovery for single posts, pages, or attachments.
 
 = Version 1.1.7 2018-11-26 =
