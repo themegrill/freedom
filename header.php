@@ -23,6 +23,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php
+if ( function_exists( 'wp_body_open' ) ) {
+	wp_body_open();
+}
+?>
+
 <?php do_action( 'before' ); ?>
 <div id="page" class="hfeed site">
 	<?php do_action( 'freedom_before_header' ); ?>
