@@ -51,8 +51,10 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
-=Version TBD =
+= Version TBD =
 * Fix - Gallery padding for Gutenberg
+* Tweak - Update `screen-reader-text` CSS.
+* Tweak - Added `skip-link` to content area.
 * Tweak - Add alt attributes to missed img tags
 * Tweak - Utilize single custom JS file for required theme JS settings.
 * Tweak - separate customize control class via different file
