@@ -45,6 +45,10 @@ function freedom_scripts_styles_method() {
 		wp_enqueue_script( 'jquery_cycle');
 	}
 	wp_enqueue_script( 'freedom-navigation', FREEDOM_JS_URL . '/navigation.js', array( 'jquery' ), false, true );
+
+	// Skip link focus fix JS enqueue.
+	wp_enqueue_script( 'freedom-skip-link-focus-fix', FREEDOM_JS_URL . '/skip-link-focus-fix.js', array(), false, true );
+
 	wp_enqueue_script( 'freedom-custom', FREEDOM_JS_URL . '/freedom-custom.js', array( 'jquery' ) );
 
 	wp_enqueue_style( 'freedom-fontawesome', get_template_directory_uri() . '/fontawesome/css/font-awesome.css', array(), '4.2.1' );
