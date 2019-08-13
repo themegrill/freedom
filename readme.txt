@@ -55,6 +55,7 @@ and we will include it within the theme from next version update.
 * Fix - Gallery padding for Gutenberg
 * Tweak - Update `screen-reader-text` CSS.
 * Tweak - Added `skip-link` to content area.
+* Tweak - Modify menu CSS for keyboard accessibility.
 * Tweak - Add alt attributes to missed img tags
 * Tweak - Utilize single custom JS file for required theme JS settings.
 * Tweak - separate customize control class via different file
