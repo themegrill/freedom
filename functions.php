@@ -196,6 +196,11 @@ if ( class_exists( 'TG_Demo_Importer' ) ) {
 }
 
 /**
+ * Detect plugin. For use on Front End only.
+ */
+include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+/**
  * Assign the Esteem version to a variable.
  */
 $theme            = wp_get_theme( 'freedom' );
@@ -204,6 +209,11 @@ $freedom_version = $theme['Version'];
 /* Calling in the admin area for the Welcome Page */
 if ( is_admin() ) {
   require get_template_directory() . '/inc/admin/class-freedom-admin.php';
+  require get_template_directory() . '/inc/admin/class-freedom-tdi-notice.php';
+
+  if ( ! function_exists( 'get_plugins' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
 }
 
 /**
