@@ -204,6 +204,7 @@ $freedom_version = $theme['Version'];
 /* Calling in the admin area for the Welcome Page */
 if ( is_admin() ) {
   require get_template_directory() . '/inc/admin/class-freedom-admin.php';
+  require get_template_directory() . '/inc/admin/class-freedom-tdi-notice.php';
 }
 
 /**
