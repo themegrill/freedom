@@ -23,8 +23,6 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-			add_action( 'wp_loaded', array( __CLASS__, 'hide_notices' ) );
-			add_action( 'load-themes.php', array( $this, 'admin_notice' ) );
 		}
 
 		/**
@@ -33,10 +31,16 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		public function admin_menu() {
 			$theme = wp_get_theme( get_template() );
 
-			$page = add_theme_page( esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ), esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ), 'activate_plugins', 'freedom-welcome', array(
-				$this,
-				'welcome_screen',
-			) );
+			$page = add_theme_page(
+				esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ),
+				esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ),
+				'activate_plugins',
+				'freedom-welcome',
+				array(
+					$this,
+					'welcome_screen',
+				)
+			);
 			add_action( 'admin_print_styles-' . $page, array( $this, 'enqueue_styles' ) );
 		}
 
@@ -47,58 +51,6 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 			global $freedom_version;
 
 			wp_enqueue_style( 'freedom-welcome', get_template_directory_uri() . '/css/admin/welcome.css', array(), $freedom_version );
-		}
-
-		/**
-		 * Add admin notice.
-		 */
-		public function admin_notice() {
-			global $freedom_version, $pagenow;
-
-			wp_enqueue_style( 'freedom-message', get_template_directory_uri() . '/css/admin/message.css', array(), $freedom_version );
-
-			// Let's bail on theme activation.
-			if ( 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
-				add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
-				update_option( 'freedom_admin_notice_welcome', 1 );
-
-				// No option? Let run the notice wizard again..
-			} elseif ( ! get_option( 'freedom_admin_notice_welcome' ) ) {
-				add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
-			}
-		}
-
-		/**
-		 * Hide a notice if the GET variable is set.
-		 */
-		public static function hide_notices() {
-			if ( isset( $_GET['freedom-hide-notice'] ) && isset( $_GET['_freedom_notice_nonce'] ) ) {
-				if ( ! wp_verify_nonce( $_GET['_freedom_notice_nonce'], 'freedom_hide_notices_nonce' ) ) {
-					wp_die( __( 'Action failed. Please refresh the page and retry.', 'freedom' ) );
-				}
-
-				if ( ! current_user_can( 'manage_options' ) ) {
-					wp_die( __( 'Cheatin&#8217; huh?', 'freedom' ) );
-				}
-
-				$hide_notice = sanitize_text_field( $_GET['freedom-hide-notice'] );
-				update_option( 'freedom_admin_notice_' . $hide_notice, 1 );
-			}
-		}
-
-		/**
-		 * Show welcome notice.
-		 */
-		public function welcome_notice() {
-			?>
-			<div id="message" class="updated freedom-message">
-				<a class="freedom-message-close notice-dismiss" href="<?php echo esc_url( wp_nonce_url( remove_query_arg( array( 'activated' ), add_query_arg( 'freedom-hide-notice', 'welcome' ) ), 'freedom_hide_notices_nonce', '_freedom_notice_nonce' ) ); ?>"><?php _e( 'Dismiss', 'freedom' ); ?></a>
-				<p><?php printf( esc_html__( 'Welcome! Thank you for choosing Freedom! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'freedom' ), '<a href="' . esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ) . '">', '</a>' ); ?></p>
-				<p class="submit">
-					<a class="button-secondary" href="<?php echo esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ); ?>"><?php esc_html_e( 'Get started with Freedom', 'freedom' ); ?></a>
-				</p>
-			</div>
-			<?php
 		}
 
 		/**
@@ -141,33 +93,82 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 			</p>
 
 			<h2 class="nav-tab-wrapper">
-				<a class="nav-tab <?php if ( empty( $_GET['tab'] ) && $_GET['page'] == 'freedom-welcome' ) {
+				<a class="nav-tab 
+				<?php
+				if ( empty( $_GET['tab'] ) && $_GET['page'] == 'freedom-welcome' ) {
 					echo 'nav-tab-active';
-				} ?>" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'freedom-welcome' ), 'themes.php' ) ) ); ?>">
+				}
+				?>
+				" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'freedom-welcome' ), 'themes.php' ) ) ); ?>">
 					<?php echo $theme->display( 'Name' ); ?>
 				</a>
-				<a class="nav-tab <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'supported_plugins' ) {
+				<a class="nav-tab 
+				<?php
+				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'supported_plugins' ) {
 					echo 'nav-tab-active';
-				} ?>" href="<?php echo esc_url( admin_url( add_query_arg( array(
-					'page' => 'freedom-welcome',
-					'tab'  => 'supported_plugins',
-				), 'themes.php' ) ) ); ?>">
+				}
+				?>
+				" href="
+				<?php
+				echo esc_url(
+					admin_url(
+						add_query_arg(
+							array(
+								'page' => 'freedom-welcome',
+								'tab'  => 'supported_plugins',
+							),
+							'themes.php'
+						)
+					)
+				);
+				?>
+				">
 					<?php esc_html_e( 'Supported Plugins', 'freedom' ); ?>
 				</a>
-				<a class="nav-tab <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'free_vs_pro' ) {
+				<a class="nav-tab 
+				<?php
+				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'free_vs_pro' ) {
 					echo 'nav-tab-active';
-				} ?>" href="<?php echo esc_url( admin_url( add_query_arg( array(
-					'page' => 'freedom-welcome',
-					'tab'  => 'free_vs_pro',
-				), 'themes.php' ) ) ); ?>">
+				}
+				?>
+				" href="
+				<?php
+				echo esc_url(
+					admin_url(
+						add_query_arg(
+							array(
+								'page' => 'freedom-welcome',
+								'tab'  => 'free_vs_pro',
+							),
+							'themes.php'
+						)
+					)
+				);
+				?>
+				">
 					<?php esc_html_e( 'Free Vs Pro', 'freedom' ); ?>
 				</a>
-				<a class="nav-tab <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'changelog' ) {
+				<a class="nav-tab 
+				<?php
+				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'changelog' ) {
 					echo 'nav-tab-active';
-				} ?>" href="<?php echo esc_url( admin_url( add_query_arg( array(
-					'page' => 'freedom-welcome',
-					'tab'  => 'changelog',
-				), 'themes.php' ) ) ); ?>">
+				}
+				?>
+				" href="
+				<?php
+				echo esc_url(
+					admin_url(
+						add_query_arg(
+							array(
+								'page' => 'freedom-welcome',
+								'tab'  => 'changelog',
+							),
+							'themes.php'
+						)
+					)
+				);
+				?>
+				">
 					<?php esc_html_e( 'Changelog', 'freedom' ); ?>
 				</a>
 			</h2>
@@ -203,7 +204,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 					<div class="under-the-hood two-col">
 						<div class="col">
 							<h3><?php esc_html_e( 'Theme Customizer', 'freedom' ); ?></h3>
-							<p><?php esc_html_e( 'All Theme Options are available via Customize screen.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'All Theme Options are available via Customize screen.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo admin_url( 'customize.php' ); ?>" class="button button-secondary"><?php esc_html_e( 'Customize', 'freedom' ); ?></a>
 							</p>
@@ -211,7 +212,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 
 						<div class="col">
 							<h3><?php esc_html_e( 'Documentation', 'freedom' ); ?></h3>
-							<p><?php esc_html_e( 'Please view our documentation page to setup the theme.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'Please view our documentation page to setup the theme.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo esc_url( 'https://docs.themegrill.com/freedom/?utm_source=freedom-about&utm_medium=documentation-link&utm_campaign=documentation' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Documentation', 'freedom' ); ?></a>
 							</p>
@@ -219,7 +220,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 
 						<div class="col">
 							<h3><?php esc_html_e( 'Got theme support question?', 'freedom' ); ?></h3>
-							<p><?php esc_html_e( 'Please put it in our dedicated support forum.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'Please put it in our dedicated support forum.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo esc_url( 'https://themegrill.com/support-forum/?utm_source=freedom-about&utm_medium=support-forum-link&utm_campaign=support-forum' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Support Forum', 'freedom' ); ?></a>
 							</p>
@@ -227,7 +228,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 
 						<div class="col">
 							<h3><?php esc_html_e( 'Need more features?', 'freedom' ); ?></h3>
-							<p><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'Upgrade to PRO version for more exciting features.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo esc_url( 'https://themegrill.com/themes/freedom/?utm_source=freedom-about&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'View Pro', 'freedom' ); ?></a>
 							</p>
@@ -235,7 +236,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 
 						<div class="col">
 							<h3><?php esc_html_e( 'Got sales related question?', 'freedom' ); ?></h3>
-							<p><?php esc_html_e( 'Please send it via our sales contact page.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'Please send it via our sales contact page.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo esc_url( 'https://themegrill.com/contact/?utm_source=freedom-about&utm_medium=contact-page-link&utm_campaign=contact-page' ); ?>" class="button button-secondary" target="_blank"><?php esc_html_e( 'Contact Page', 'freedom' ); ?></a>
 							</p>
@@ -248,7 +249,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 								echo ' ' . $theme->display( 'Name' );
 								?>
 							</h3>
-							<p><?php esc_html_e( 'Click below to translate this theme into your own language.', 'freedom' ) ?></p>
+							<p><?php esc_html_e( 'Click below to translate this theme into your own language.', 'freedom' ); ?></p>
 							<p>
 								<a href="<?php echo esc_url( 'http://translate.wordpress.org/projects/wp-themes/freedom' ); ?>" class="button button-secondary">
 									<?php
