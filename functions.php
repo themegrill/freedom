@@ -206,6 +206,7 @@ define( 'FREEDOM_THEME_VERSION', $freedom_theme->get( 'Version' ) );
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin/class-freedom-admin.php';
 	require get_template_directory() . '/inc/admin/class-freedom-tdi-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-notice.php';
 	require get_template_directory() . '/inc/admin/class-freedom-welcome-notice.php';
 	require get_template_directory() . '/inc/admin/class-freedom-theme-review-notice.php';
 }
