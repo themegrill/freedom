@@ -48,9 +48,8 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		 * Enqueue styles.
 		 */
 		public function enqueue_styles() {
-			global $freedom_version;
 
-			wp_enqueue_style( 'freedom-welcome', get_template_directory_uri() . '/css/admin/welcome.css', array(), $freedom_version );
+			wp_enqueue_style( 'freedom-welcome', get_template_directory_uri() . '/css/admin/welcome.css', array(), FREEDOM_THEME_VERSION );
 		}
 
 		/**
@@ -59,12 +58,11 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		 * @access private
 		 */
 		private function intro() {
-			global $freedom_version;
 
 			$theme = wp_get_theme( get_template() );
 
 			// Drop minor version if 0
-			$major_version = substr( $freedom_version, 0, 3 );
+			$major_version = substr( FREEDOM_THEME_VERSION, 0, 3 );
 			?>
 			<div class="freedom-theme-info">
 				<h1>
@@ -93,7 +91,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 			</p>
 
 			<h2 class="nav-tab-wrapper">
-				<a class="nav-tab 
+				<a class="nav-tab
 				<?php
 				if ( empty( $_GET['tab'] ) && $_GET['page'] == 'freedom-welcome' ) {
 					echo 'nav-tab-active';
@@ -102,7 +100,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 				" href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'freedom-welcome' ), 'themes.php' ) ) ); ?>">
 					<?php echo $theme->display( 'Name' ); ?>
 				</a>
-				<a class="nav-tab 
+				<a class="nav-tab
 				<?php
 				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'supported_plugins' ) {
 					echo 'nav-tab-active';
@@ -125,7 +123,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 				">
 					<?php esc_html_e( 'Supported Plugins', 'freedom' ); ?>
 				</a>
-				<a class="nav-tab 
+				<a class="nav-tab
 				<?php
 				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'free_vs_pro' ) {
 					echo 'nav-tab-active';
@@ -148,7 +146,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 				">
 					<?php esc_html_e( 'Free Vs Pro', 'freedom' ); ?>
 				</a>
-				<a class="nav-tab 
+				<a class="nav-tab
 				<?php
 				if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'changelog' ) {
 					echo 'nav-tab-active';
