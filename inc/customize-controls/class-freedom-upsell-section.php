@@ -1,38 +1,53 @@
 <?php
-/**
- * Class to include upsell link campaign for theme.
- *
- * Class FREEDOM_Upsell_Section
- *
- * @since 1.1.8
- */
 
-class FREEDOM_Upsell_Section extends WP_Customize_Section {
-	public $type = 'freedom-upsell-section';
-	public $url  = '';
-	public $id   = '';
+class FREEDOM_Upsell_Custom_Control extends WP_Customize_Control {
 
-	/**
-	 * Gather the parameters passed to client JavaScript via JSON.
-	 *
-	 * @return array The array to be exported to the client as JSON.
-	 */
-	public function json() {
-		$json        = parent::json();
-		$json['url'] = esc_url( $this->url );
-		$json['id']  = $this->id;
+	public $type = 'freedom-upsell-control';
 
-		return $json;
+	public function enqueue() {
+		wp_enqueue_style( 'freedom-customizer', get_template_directory_uri() . '/inc/customize-controls/assets/css/customizer-upsell.css', array(), FREEDOM_THEME_VERSION );
 	}
 
-	/**
-	 * An Underscore (JS) template for rendering this section.
-	 */
-	protected function render_template() {
+	public function render_content() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="freedom-upsell-accordion-section control-section-{{ data.type }} cannot-expand accordion-section">
-			<h3 class="accordion-section-title"><a href="{{{ data.url }}}" target="_blank">{{ data.title }}</a></h3>
-		</li>
+		<div class="freedom-upsell-wrapper">
+			<ul class="upsell-features">
+				<h3 class="upsell-heading"><?php esc_html_e( 'More Awesome Features', 'freedom' ); ?></h3>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Advanced Typography Options', 'freedom' ); ?>
+				</li>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Flexible Menu Designs', 'freedom' ); ?>
+				</li>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Full Width, Grid Blog', 'freedom' ); ?>
+				</li>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Advanced Slider Options', 'freedom' ); ?>
+				</li>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( '100+ Customizer Options', 'freedom' ); ?>
+				</li>
+				<li class="upsell-feature"><span
+						class="dashicons dashicons-yes"></span><?php esc_html_e( 'More Addtional Options', 'freedom' ); ?>
+				</li>
+			</ul>
+
+			<div class="launch-offer">
+				<?php
+				printf(
+				/* translators: %1$s discount coupon code., %2$s discount percentage */
+					esc_html__( 'Use the coupon code %1$s to get %2$s discount (limited time offer). Enjoy!', 'freedom' ),
+					'<span class="coupon-code">save10</span>',
+					'10%'
+				);
+				?>
+			</div>
+		</div> <!-- /.freedom-upsell-wrapper -->
+
+		<a class="upsell-cta" target="_blank"
+		   href="<?php echo esc_url( 'https://themegrill.com/freedom-pricing/?utm_source=freedom-customizer&utm_medium=view-pricing-link&utm_campaign=upgrade' ); ?>"><?php esc_html_e( 'View Pricing', 'freedom' ); ?></a>
 		<?php
 	}
+
 }
