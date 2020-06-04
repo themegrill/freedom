@@ -14,9 +14,6 @@ class FREEDOM_Upsell_Custom_Control extends WP_Customize_Control {
 			<ul class="upsell-features">
 				<h3 class="upsell-heading"><?php esc_html_e( 'More Awesome Features', 'freedom' ); ?></h3>
 				<li class="upsell-feature"><span
-						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Advanced Typography Options', 'freedom' ); ?>
-				</li>
-				<li class="upsell-feature"><span
 						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Flexible Menu Designs', 'freedom' ); ?>
 				</li>
 				<li class="upsell-feature"><span
@@ -26,7 +23,7 @@ class FREEDOM_Upsell_Custom_Control extends WP_Customize_Control {
 						class="dashicons dashicons-yes"></span><?php esc_html_e( 'Advanced Slider Options', 'freedom' ); ?>
 				</li>
 				<li class="upsell-feature"><span
-						class="dashicons dashicons-yes"></span><?php esc_html_e( '100+ Customizer Options', 'freedom' ); ?>
+						class="dashicons dashicons-yes"></span><?php esc_html_e( '60+ Customizer Options', 'freedom' ); ?>
 				</li>
 				<li class="upsell-feature"><span
 						class="dashicons dashicons-yes"></span><?php esc_html_e( 'More Addtional Options', 'freedom' ); ?>
