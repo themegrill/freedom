@@ -23,8 +23,24 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		 */
 		public function __construct() {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-			add_action( 'wp_loaded', array( __CLASS__, 'hide_notices' ) );
-			add_action( 'load-themes.php', array( $this, 'admin_notice' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		}
+
+		/**
+		 * Localize array for import button AJAX request.
+		 */
+		public function enqueue_scripts() {
+			wp_enqueue_style( 'freedom-admin-style', get_template_directory_uri() . '/inc/admin/css/admin.css', array(), FREEDOM_THEME_VERSION );
+
+			wp_enqueue_script( 'freedom-plugin-install-helper', get_template_directory_uri() . '/inc/admin/js/plugin-handle.js', array( 'jquery' ), FREEDOM_THEME_VERSION, true );
+
+			$welcome_data = array(
+				'uri'      => esc_url( admin_url( '/themes.php?page=demo-importer&browse=all&freedom-hide-notice=welcome' ) ),
+				'btn_text' => esc_html__( 'Processing...', 'freedom' ),
+				'nonce'    => wp_create_nonce( 'freedom_demo_import_nonce' ),
+			);
+
+			wp_localize_script( 'freedom-plugin-install-helper', 'freedomRedirectDemoPage', $welcome_data );
 		}
 
 		/**
@@ -33,72 +49,17 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 		public function admin_menu() {
 			$theme = wp_get_theme( get_template() );
 
-			$page = add_theme_page( esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ), esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ), 'activate_plugins', 'freedom-welcome', array(
-				$this,
-				'welcome_screen',
-			) );
-			add_action( 'admin_print_styles-' . $page, array( $this, 'enqueue_styles' ) );
-		}
-
-		/**
-		 * Enqueue styles.
-		 */
-		public function enqueue_styles() {
-			global $freedom_version;
-
-			wp_enqueue_style( 'freedom-welcome', get_template_directory_uri() . '/css/admin/welcome.css', array(), $freedom_version );
-		}
-
-		/**
-		 * Add admin notice.
-		 */
-		public function admin_notice() {
-			global $freedom_version, $pagenow;
-
-			wp_enqueue_style( 'freedom-message', get_template_directory_uri() . '/css/admin/message.css', array(), $freedom_version );
-
-			// Let's bail on theme activation.
-			if ( 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) {
-				add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
-				update_option( 'freedom_admin_notice_welcome', 1 );
-
-				// No option? Let run the notice wizard again..
-			} elseif ( ! get_option( 'freedom_admin_notice_welcome' ) ) {
-				add_action( 'admin_notices', array( $this, 'welcome_notice' ) );
-			}
-		}
-
-		/**
-		 * Hide a notice if the GET variable is set.
-		 */
-		public static function hide_notices() {
-			if ( isset( $_GET['freedom-hide-notice'] ) && isset( $_GET['_freedom_notice_nonce'] ) ) {
-				if ( ! wp_verify_nonce( $_GET['_freedom_notice_nonce'], 'freedom_hide_notices_nonce' ) ) {
-					wp_die( __( 'Action failed. Please refresh the page and retry.', 'freedom' ) );
-				}
-
-				if ( ! current_user_can( 'manage_options' ) ) {
-					wp_die( __( 'Cheatin&#8217; huh?', 'freedom' ) );
-				}
-
-				$hide_notice = sanitize_text_field( $_GET['freedom-hide-notice'] );
-				update_option( 'freedom_admin_notice_' . $hide_notice, 1 );
-			}
-		}
-
-		/**
-		 * Show welcome notice.
-		 */
-		public function welcome_notice() {
-			?>
-			<div id="message" class="updated freedom-message">
-				<a class="freedom-message-close notice-dismiss" href="<?php echo esc_url( wp_nonce_url( remove_query_arg( array( 'activated' ), add_query_arg( 'freedom-hide-notice', 'welcome' ) ), 'freedom_hide_notices_nonce', '_freedom_notice_nonce' ) ); ?>"><?php _e( 'Dismiss', 'freedom' ); ?></a>
-				<p><?php printf( esc_html__( 'Welcome! Thank you for choosing Freedom! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'freedom' ), '<a href="' . esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ) . '">', '</a>' ); ?></p>
-				<p class="submit">
-					<a class="button-secondary" href="<?php echo esc_url( admin_url( 'themes.php?page=freedom-welcome' ) ); ?>"><?php esc_html_e( 'Get started with Freedom', 'freedom' ); ?></a>
-				</p>
-			</div>
-			<?php
+			$page = add_theme_page(
+				esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ),
+				esc_html__( 'About', 'freedom' ) . ' ' . $theme->display( 'Name' ),
+				'activate_plugins',
+				'freedom-welcome',
+				array(
+					$this,
+					'welcome_screen',
+				)
+			);
+			add_action( 'admin_print_styles-' . $page, array( $this, 'enqueue_scripts' ) );
 		}
 
 		/**
@@ -112,7 +73,7 @@ if ( ! class_exists( 'Freedom_Admin' ) ) :
 			$theme = wp_get_theme( get_template() );
 
 			// Drop minor version if 0
-			$major_version = substr( $freedom_version, 0, 3 );
+			$major_version = substr( FREEDOM_THEME_VERSION, 0, 3 );
 			?>
 			<div class="freedom-theme-info">
 				<h1>

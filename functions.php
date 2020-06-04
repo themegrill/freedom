@@ -196,15 +196,19 @@ if ( class_exists( 'TG_Demo_Importer' ) ) {
 }
 
 /**
- * Assign the Esteem version to a variable.
+ * Theme Version.
  */
-$theme            = wp_get_theme( 'freedom' );
-$freedom_version = $theme['Version'];
+$freedom_theme = wp_get_theme( 'freedom' );
+define( 'FREEDOM_THEME_VERSION', $freedom_theme->get( 'Version' ) );
 
 /* Calling in the admin area for the Welcome Page */
 if ( is_admin() ) {
   require get_template_directory() . '/inc/admin/class-freedom-admin.php';
+  require get_template_directory() . '/inc/admin/class-freedom-notice.php';
   require get_template_directory() . '/inc/admin/class-freedom-tdi-notice.php';
+  require get_template_directory() . '/inc/admin/class-freedom-theme-review-notice.php';
+  require get_template_directory() . '/inc/admin/class-freedom-welcome-notice.php';
+  require get_template_directory() . '/inc/admin/class-freedom-upgrade-notice.php';
 }
 
 /**

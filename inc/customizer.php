@@ -29,17 +29,33 @@ function freedom_customize_register( $wp_customize ) {
 		) );
 	}
 
-// Register `FREEDOM_Upsell_Section` type section.
-	$wp_customize->register_section_type( 'FREEDOM_Upsell_Section' );
-
-// Add `FREEDOM_Upsell_Section` to display pro link.
+	/**
+	 * Upsell.
+	 */
 	$wp_customize->add_section(
-		new FREEDOM_Upsell_Section( $wp_customize, 'freedom_upsell_section',
+		'freedom_upsell_section',
+		array(
+			'priority' => 1,
+			'title'    => __( 'View Pro Version', 'freedom' ),
+		)
+	);
+
+	$wp_customize->add_setting(
+		'freedom_upsell',
+		array(
+			'default'           => '',
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'freedom_links_sanitize',
+		)
+	);
+
+	$wp_customize->add_control(
+		new FREEDOM_Upsell_Custom_Control(
+			$wp_customize,
+			'freedom_upsell',
 			array(
-				'title'      => esc_html__( 'View PRO version', 'freedom' ),
-				'url'        => 'https://themegrill.com/themes/freedom/?utm_source=freedom-customizer&utm_medium=view-pro-link&utm_campaign=view-pro#free-vs-pro',
-				'capability' => 'edit_theme_options',
-				'priority'   => 1,
+				'section' => 'freedom_upsell_section',
+				'setting' => 'freedom_upsell',
 			)
 		)
 	);
