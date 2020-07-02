@@ -1486,7 +1486,7 @@ ul.wp-block-gallery.columns-3 {
 }
 
 .required {
-	color: #ff0000;
+	color: red;
 }
 
 /* =WIDGETS
@@ -1726,6 +1726,16 @@ Gutenberg Blocks Layout.
 .wp-block-social-links.alignright,
 .wp-block-social-links.aligncenter {
 	display: flex;
+}
+
+ul.blocks-gallery-grid,
+ul.wp-block-gallery {
+	padding: 0;
+}
+
+ul.blocks-gallery-grid img,
+ul.wp-block-gallery img {
+	margin-bottom: 0;
 }
 
 /* =POST CONTENT
