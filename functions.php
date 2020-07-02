@@ -48,7 +48,7 @@ add_action( 'after_setup_theme', 'freedom_setup' );
  */
 function freedom_block_editor_styles()
 {
-   wp_enqueue_style('freedom-editor-googlefonts', '//fonts.googleapis.com/css?family=Vollkorn');
+   wp_enqueue_style('freedom-editor-googlefonts', '//fonts.googleapis.com/css?family=Fira+Sans|Vollkorn');
    wp_enqueue_style('freedom-block-editor-styles', get_template_directory_uri() . '/style-editor-block.css');
 }
 add_action('enqueue_block_editor_assets', 'freedom_block_editor_styles', 1, 1);
