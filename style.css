@@ -2150,9 +2150,17 @@ iframe#wp-custom-header-video {
 /* =RESPONSIVE STRUCTURE
 ----------------------------------------------- */
 @media screen and (max-width: 1500px) {
-	.no-sidebar-full-width .alignwide {
-		margin-left: -20px;
-		margin-right: -20px;
+	.no-sidebar-full-width #primary .entry-content > .alignwide {
+		margin-left: -100px;
+		margin-right: -100px;
+	}
+	.no-sidebar #primary .entry-content > .alignwide {
+		margin-left: -50px;
+		margin-right: -50px;
+	}
+	.no-sidebar #primary .entry-content > .alignfull {
+		margin-left: -100px;
+		margin-right: -100px;
 	}
 }
 
@@ -2191,7 +2199,7 @@ iframe#wp-custom-header-video {
 
 @media screen and (max-width: 1078px) {
 
-	.no-sidebar-full-width .alignwide {
+	.no-sidebar-full-width #primary .entry-content > .alignwide {
 		margin-left: -10px;
 		margin-right: -10px;
 	}
@@ -2393,9 +2401,19 @@ iframe#wp-custom-header-video {
 		padding-right: 0;
 	}
 
-	.no-sidebar .alignwide {
+	.no-sidebar #primary .entry-content > .alignwide {
 		margin-left: -10px;
 		margin-right: -10px;
+	}
+	.no-sidebar-full-width.boxed #primary .entry-content > .alignwide,
+	.no-sidebar.boxed #primary .entry-content > .alignwide {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+	.no-sidebar-full-width.boxed #primary .entry-content > .alignfull,
+	.no-sidebar.boxed #primary .entry-content > .alignfull {
+		margin-left: -30px;
+		margin-right: -30px;
 	}
 }
 
@@ -2435,8 +2453,8 @@ iframe#wp-custom-header-video {
 		width: 33.33%;
 	}
 
-	.no-sidebar-full-width .alignwide,
-	.no-sidebar .alignwide {
+	.no-sidebar-full-width #primary .entry-content > .alignwide,
+	.no-sidebar #primary .entry-content > .alignwide {
 		margin-left: 0;
 		margin-right: 0;
 	}
