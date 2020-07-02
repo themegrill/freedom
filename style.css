@@ -1486,7 +1486,7 @@ ul.wp-block-gallery.columns-3 {
 }
 
 .required {
-	color: red;
+	color: #ff0000;
 }
 
 /* =WIDGETS
@@ -1716,6 +1716,16 @@ a#scroll-up:hover {
 	margin-left: -15px;
 	margin-right: -15px;
 	max-width: unset;
+}
+
+/*--------------------------------------------------------------
+Gutenberg Blocks Layout.
+--------------------------------------------------------------*/
+.wp-block-gallery.alignleft, .wp-block-gallery.alignright, .wp-block-gallery.aligncenter,
+.wp-block-social-links.alignleft,
+.wp-block-social-links.alignright,
+.wp-block-social-links.aligncenter {
+	display: flex;
 }
 
 /* =POST CONTENT
