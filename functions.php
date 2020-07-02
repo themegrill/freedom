@@ -40,6 +40,19 @@ function freedom_content_width() {
 add_action( 'template_redirect', 'freedom_content_width' );
 
 add_action( 'after_setup_theme', 'freedom_setup' );
+
+/**
+ * Enqueue block editor styles.
+ *
+ * @since Freedom 1.1.9
+ */
+function freedom_block_editor_styles()
+{
+   wp_enqueue_style('freedom-editor-googlefonts', '//fonts.googleapis.com/css?family=Vollkorn');
+   wp_enqueue_style('freedom-block-editor-styles', get_template_directory_uri() . '/style-editor-block.css');
+}
+add_action('enqueue_block_editor_assets', 'freedom_block_editor_styles', 1, 1);
+
 /**
  * All setup functionalities.
  *
