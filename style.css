@@ -169,7 +169,8 @@ h6 {
 	line-height: 1.2;
 }
 
-hr {
+hr,
+.wp-block-separator {
 	border-color: #eaeaea;
 	border-style: solid none none;
 	border-width: 1px 0 0;
