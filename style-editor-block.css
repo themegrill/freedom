@@ -65,7 +65,11 @@
 	line-height: 1.2;
 }
 
-.editor-styles-wrapper hr {
+.editor-styles-wrapper hr,
+.editor-styles-wrapper .wp-block-separator {
+	border-color: #eaeaea;
+	border-style: solid none none;
+	border-width: 1px 0 0;
 	height: 0;
 	margin: 30px 0;
 }
