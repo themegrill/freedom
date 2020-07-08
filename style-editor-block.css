@@ -29,7 +29,12 @@
 }
 
 /* Headings */
-.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6 {
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
 	padding-bottom: 18px;
 	color: #333333;
 	font-weight: normal;
@@ -89,7 +94,9 @@
 	font-weight: bold;
 }
 
-.editor-styles-wrapper cite, .editor-styles-wrapper em, .editor-styles-wrapper i {
+.editor-styles-wrapper cite,
+.editor-styles-wrapper em,
+.editor-styles-wrapper i {
 	font-style: italic;
 }
 
@@ -101,14 +108,21 @@
 	border: 1px solid #eaeaea;
 }
 
-.editor-styles-wrapper pre, .editor-styles-wrapper code, .editor-styles-wrapper kbd, .editor-styles-wrapper var, .editor-styles-wrapper samp, .editor-styles-wrapper tt {
+.editor-styles-wrapper pre,
+.editor-styles-wrapper code,
+.editor-styles-wrapper kbd,
+.editor-styles-wrapper var,
+.editor-styles-wrapper samp,
+.editor-styles-wrapper tt {
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 14px;
 	line-height: 1.4;
 	white-space: pre-wrap;
 }
 
-.editor-styles-wrapper abbr, .editor-styles-wrapper acronym, .editor-styles-wrapper dfn {
+.editor-styles-wrapper abbr,
+.editor-styles-wrapper acronym,
+.editor-styles-wrapper dfn {
 	border-bottom: 1px dotted #777777;
 	cursor: help;
 }
@@ -130,7 +144,8 @@
 
 /* =SUPERCRIPT AND SUBSCRIPT
 ----------------------------------------------- */
-.editor-styles-wrapper sup, .editor-styles-wrapper sub {
+.editor-styles-wrapper sup,
+.editor-styles-wrapper sub {
 	font-size: 10px;
 	height: 0;
 	line-height: 1;
@@ -205,7 +220,9 @@
 	left: -27px;
 }
 
-.editor-styles-wrapper blockquote em, .editor-styles-wrapper blockquote i, .editor-styles-wrapper blockquote cite {
+.editor-styles-wrapper blockquote em,
+.editor-styles-wrapper blockquote i,
+.editor-styles-wrapper blockquote cite {
 	font-style: normal;
 }
 
@@ -257,8 +274,7 @@
 
 .editor-styles-wrapper input[type="reset"],
 .editor-styles-wrapper input[type="button"],
-.editor-styles-wrapper input[type="submit"],
-.editor-styles-wrapper .wp-block button:not(.components-button) {
+.editor-styles-wrapper input[type="submit"] {
 	margin-bottom: 30px;
 	padding: 10px 20px;
 	background-color: #46c9be;
@@ -278,15 +294,13 @@
 
 .editor-styles-wrapper input[type="reset"]:hover,
 .editor-styles-wrapper input[type="button"]:hover,
-.editor-styles-wrapper input[type="submit"]:hover,
-.editor-styles-wrapper .wp-block button:not(.components-button) {
+.editor-styles-wrapper input[type="submit"]:hover {
 	background-color: #33363b;
 }
 
 .editor-styles-wrapper input[type="reset"]:active,
 .editor-styles-wrapper input[type="button"]:active,
-.editor-styles-wrapper input[type="submit"]:active,
-.editor-styles-wrapper .wp-block button:not(.components-button) {
+.editor-styles-wrapper input[type="submit"]:active {
 	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -297,7 +311,9 @@
 	text-decoration: none;
 }
 
-.editor-styles-wrapper a:focus, .editor-styles-wrapper a:active, .editor-styles-wrapper a:hover {
+.editor-styles-wrapper a:focus,
+.editor-styles-wrapper a:active,
+.editor-styles-wrapper a:hover {
 	text-decoration: none;
 }
 
@@ -320,6 +336,7 @@
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -353,9 +370,6 @@
 
 .editor-styles-wrapper .wp-caption .wp-caption-text {
 	margin: 0.8075rem 0;
-}
-
-.editor-styles-wrapper .gallery-caption {
 }
 
 /* =WORDPRESS GALLERY SUPPORT
@@ -443,7 +457,7 @@
 	.editor-styles-wrapper .wp-block .gallery-columns-8 .gallery-item,
 	.editor-styles-wrapper .wp-block .gallery-columns-9 .gallery-item {
 		width: 25%;
-    }
+	}
 }
 
 @media only screen and (max-width: 420px) {
@@ -454,5 +468,5 @@
 	.editor-styles-wrapper .wp-block .gallery-columns-8 .gallery-item,
 	.editor-styles-wrapper .wp-block .gallery-columns-9 .gallery-item {
 		width: 33.33%;
-    }
+	}
 }
