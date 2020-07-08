@@ -40,6 +40,19 @@ function freedom_content_width() {
 add_action( 'template_redirect', 'freedom_content_width' );
 
 add_action( 'after_setup_theme', 'freedom_setup' );
+
+/**
+ * Enqueue block editor styles.
+ *
+ * @since Freedom 1.1.9
+ */
+function freedom_block_editor_styles()
+{
+   wp_enqueue_style('freedom-editor-googlefonts', '//fonts.googleapis.com/css?family=Fira+Sans|Vollkorn');
+   wp_enqueue_style('freedom-block-editor-styles', get_template_directory_uri() . '/style-editor-block.css');
+}
+add_action('enqueue_block_editor_assets', 'freedom_block_editor_styles', 1, 1);
+
 /**
  * All setup functionalities.
  *
@@ -64,7 +77,13 @@ function freedom_setup() {
    add_theme_support( 'title-tag' );
 
 	// Gutenberg layout support.
-	add_theme_support( 'align-wide' );
+   add_theme_support( 'align-wide' );
+
+   // Add support for Block Styles.
+   add_theme_support('wp-block-styles');
+
+   // Responsive embeds support.
+   add_theme_support('responsive-embeds');
 
    // Adds the support for the Custom Logo introduced in WordPress 4.5
 	add_theme_support( 'custom-logo', array(
