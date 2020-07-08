@@ -216,6 +216,7 @@
 	background-color: #46c9be;
 	color: #ffffff;
 	border-radius: 5px;
+	border-left: 0;
 }
 
 .editor-styles-wrapper blockquote p,
