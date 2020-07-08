@@ -2197,10 +2197,6 @@ iframe#wp-custom-header-video {
 		margin-left: -100px;
 		margin-right: -100px;
 	}
-	.no-sidebar #primary .entry-content > .alignfull {
-		margin-left: -100px;
-		margin-right: -100px;
-	}
 }
 
 @media screen and (max-width: 1190px) {
