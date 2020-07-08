@@ -2190,7 +2190,7 @@ iframe#wp-custom-header-video {
 ----------------------------------------------- */
 @media screen and (max-width: 1500px) {
 	.no-sidebar-full-width #primary .entry-content > .alignwide {
-		margin-left: -50px;
+		margin-left: -100px;
 		margin-right: -100px;
 	}
 	.no-sidebar #primary .entry-content > .alignwide {
