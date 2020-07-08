@@ -282,15 +282,22 @@ li > ol {
 
 /* =BLOCKQUOTE
 ----------------------------------------------- */
-blockquote {
+blockquote,
+.wp-block-quote,
+.wp-block-quote.is-style-large,
+.wp-block-quote.has-text-align-right {
 	padding: 30px 30px 20px 45px;
 	margin-bottom: 20px;
 	background-color: #46c9be;
 	color: #ffffff;
 	border-radius: 5px;
+	border-left: 0;
 }
 
-blockquote p {
+blockquote p,
+.wp-block-quote p,
+.wp-block-quote.is-style-large p,
+.wp-block-quote.has-text-align-right p {
 	font-size: 20px;
 	font-family: 'Vollkorn', serif;
 	line-height: 1.4;
@@ -299,7 +306,10 @@ blockquote p {
 	padding-left: 40px;
 }
 
-blockquote p:before {
+blockquote p::before,
+.wp-block-quote p::before,
+.wp-block-quote.is-style-large p::before,
+.wp-block-quote.has-text-align-right p::before {
 	content: "\f10d";
 	font-family: FontAwesome;
 	font-style: normal;
@@ -312,16 +322,36 @@ blockquote p:before {
 	left: -27px;
 }
 
-blockquote em, blockquote i, blockquote cite {
+blockquote em,
+blockquote i,
+blockquote cite,
+.wp-block-quote em,
+.wp-block-quote i,
+.wp-block-quote cite,
+.wp-block-quote.is-style-large em,
+.wp-block-quote.is-style-large i,
+.wp-block-quote.is-style-large cite,
+.wp-block-quote.has-text-align-right em,
+.wp-block-quote.has-text-align-right i,
+.wp-block-quote.has-text-align-right cite {
 	font-style: normal;
 }
 
-blockquote cite {
+blockquote cite,
+.wp-block-quote cite,
+.wp-block-quote.is-style-large cite,
+.wp-block-quote.has-text-align-right cite {
+
 	font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	letter-spacing: 0.05em;
 	float: right;
 }
+
+blockquote.wp-block-quote.has-text-align-right {
+	border-right: 0;
+}
+
 
 /* =FORMS
 ----------------------------------------------- */
