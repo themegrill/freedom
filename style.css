@@ -2199,6 +2199,17 @@ iframe#wp-custom-header-video {
 	}
 }
 
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+	.no-sidebar-full-width.boxed #primary .entry-content > .alignfull {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+	.no-sidebar.boxed #primary .entry-content > .alignfull {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+}
+
 @media screen and (max-width: 1190px) {
 	#page {
 		width: 97%;
