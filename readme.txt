@@ -52,6 +52,7 @@ and we will include it within the theme from next version update.
 
 == Changelog ==
 = Version TBD =
+* Add - Required header fields: `Tested up to` and `Requires PHP` in style.css.
 * Enhancement - Gutenberg compatibility.
 * Remove - Unrequired deprecated demo config for theme demo lists.
 
