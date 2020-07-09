@@ -51,6 +51,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= Version TBD =
+* Enhancement - Gutenberg compatibility.
+
 = Version 1.1.8 2020-02-20 =
 * Fix - Gallery padding for Gutenberg
 * Tweak - Update `screen-reader-text` CSS.
