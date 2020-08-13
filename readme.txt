@@ -53,6 +53,7 @@ and we will include it within the theme from next version update.
 == Changelog ==
 = TBD =
 * Tweak - Add and improve theme-related notices.
+* Remove - TGMPA library to recommend plugins
 
 = Version 1.1.8 2020-02-20 =
 * Fix - Gallery padding for Gutenberg
