@@ -179,7 +179,7 @@ function freedom_body_class( $classes ) {
 	if ( get_theme_mod( 'freedom_site_layout', 'wide' ) == 'wide' ) {
 		$classes[] = 'wide';
 	} elseif ( get_theme_mod( 'freedom_site_layout', 'wide' ) == 'box' ) {
-		$classes[] = '';
+		$classes[] = 'boxed';
 	}
 
 	return $classes;
