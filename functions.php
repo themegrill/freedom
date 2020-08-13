@@ -209,14 +209,9 @@ if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin/class-freedom-notice.php';
 	require get_template_directory() . '/inc/admin/class-freedom-welcome-notice.php';
 	require get_template_directory() . '/inc/admin/class-freedom-upgrade-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-dashboard.php';
 	require get_template_directory() . '/inc/admin/class-freedom-theme-review-notice.php';
 }
-
-/**
- * Load TGMPA Configs.
- */
-require get_template_directory() . '/inc/tgm-plugin-activation/class-tgm-plugin-activation.php';
-require get_template_directory() . '/inc/tgm-plugin-activation/tgmpa-freedom.php';
 
 /**
  * Load Jetpack compatibility file.
