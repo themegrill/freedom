@@ -96,17 +96,17 @@ class Freedom_Dashboard {
 					<div class="welcome-panel-column">
 						<h3><?php esc_html_e( 'Next Steps', 'freedom' ); ?></h3>
 						<ul>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-media-text">' . esc_html__( 'Documentation', 'colormag' ) . '</a>', esc_url( 'https://docs.themegrill.com/colormag' ) ); ?></li>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'colormag' ) . '</a>', esc_url( 'https://demo.themegrill.com/colormag-demos' ) ); ?></li>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-migrate">' . esc_html__( 'Premium Version', 'colormag' ) . '</a>', esc_url( 'https://themegrill.com/themes/colormag' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-media-text">' . esc_html__( 'Documentation', 'freedom' ) . '</a>', esc_url( 'https://docs.themegrill.com/freedom' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'freedom' ) . '</a>', esc_url( 'https://demo.themegrill.com/freedom-demos' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-migrate">' . esc_html__( 'Premium Version', 'freedom' ) . '</a>', esc_url( 'https://themegrill.com/themes/freedom' ) ); ?></li>
 						</ul>
 					</div>
 
 					<div class="welcome-panel-column">
 						<h3><?php esc_html_e( 'Further Actions', 'freedom' ); ?></h3>
 						<ul>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-businesswoman">' . esc_html__( 'Got theme support question?', 'colormag' ) . '</a>', esc_url( 'https://wordpress.org/support/theme/colormag/' ) ); ?></li>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-thumbs-up">' . esc_html__( 'Leave a review', 'colormag' ) . '</a>', esc_url( 'https://wordpress.org/support/theme/colormag/reviews/' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-businesswoman">' . esc_html__( 'Got theme support question?', 'freedom' ) . '</a>', esc_url( 'https://wordpress.org/support/theme/freedom/' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-thumbs-up">' . esc_html__( 'Leave a review', 'freedom' ) . '</a>', esc_url( 'https://wordpress.org/support/theme/freedom/reviews/' ) ); ?></li>
 						</ul>
 					</div>
 				</div>
