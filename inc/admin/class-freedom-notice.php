@@ -19,7 +19,6 @@ class Freedom_Notice {
 	 * @param string $temporary_dismiss_url Notice temporary dismiss URL.
 	 *
 	 * @since 1.3.4
-	 *
 	 */
 	public function __construct( $name, $type, $dismiss_url, $temporary_dismiss_url ) {
 		$this->name                  = $name;

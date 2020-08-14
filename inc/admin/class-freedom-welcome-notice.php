@@ -20,7 +20,6 @@ class Freedom_Welcome_Notice {
 	 * echo `Get started` CTA.
 	 *
 	 * @return string
-	 *
 	 */
 	public function import_button_html() {
 		$html = '<a class="btn-get-started button button-primary button-hero" href="#" data-name="' . esc_attr( 'themegrill-demo-importer' ) . '" data-slug="' . esc_attr( 'themegrill-demo-importer' ) . '" aria-label="' . esc_attr__( 'Get started with Freedom', 'freedom' ) . '">' . esc_html__( 'Get started with Freedom', 'freedom' ) . '</a>';
