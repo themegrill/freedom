@@ -208,22 +208,21 @@ require_once( FREEDOM_ADMIN_DIR . '/meta-boxes.php' );
 require_once( FREEDOM_WIDGETS_DIR . '/widgets.php' );
 
 /**
- * Assign the Esteem version to a variable.
+ * Assign the Freedom version to a variable.
  */
-$theme            = wp_get_theme( 'freedom' );
-$freedom_version = $theme['Version'];
+$freedom_theme = wp_get_theme( 'freedom' );
+
+define( 'FREEDOM_THEME_VERSION', $freedom_theme->get( 'Version' ) );
 
 /* Calling in the admin area for the Welcome Page */
 if ( is_admin() ) {
-  require get_template_directory() . '/inc/admin/class-freedom-admin.php';
-  require get_template_directory() . '/inc/admin/class-freedom-tdi-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-admin.php';
+	require get_template_directory() . '/inc/admin/class-freedom-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-welcome-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-upgrade-notice.php';
+	require get_template_directory() . '/inc/admin/class-freedom-dashboard.php';
+	require get_template_directory() . '/inc/admin/class-freedom-theme-review-notice.php';
 }
-
-/**
- * Load TGMPA Configs.
- */
-require get_template_directory() . '/inc/tgm-plugin-activation/class-tgm-plugin-activation.php';
-require get_template_directory() . '/inc/tgm-plugin-activation/tgmpa-freedom.php';
 
 /**
  * Load Jetpack compatibility file.
