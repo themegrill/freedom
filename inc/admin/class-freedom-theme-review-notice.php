@@ -4,7 +4,7 @@
  *
  * @author  ThemeGrill
  * @package Freedom
- * @since   1.1.9
+ * @since   1.2.0
  */
 
 // Exit if accessed directly.
