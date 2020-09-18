@@ -47,6 +47,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= TBD =
+* Tweak - Remove deprecate Custom CSS customize option provided via theme.
+
 = Version 1.2.0 2020-08-14 =
 * Tweak - Add and improve theme-related notices.
 * Remove - TGMPA library to recommend plugins
