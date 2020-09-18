@@ -9,7 +9,6 @@
 
 function freedom_customize_register( $wp_customize ) {
 
-	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-custom-css-control.php';
 	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-image-radio-control.php';
 	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-text-area-control.php';
 	require FREEDOM_INCLUDES_DIR . '/customize-controls/class-freedom-upsell-section.php';
@@ -278,28 +277,6 @@ function freedom_customize_register( $wp_customize ) {
 		'settings' => 'freedom_primary_color',
 	) ) );
 
-	if ( ! function_exists( 'wp_update_custom_css_post' ) ) {
-
-		$wp_customize->add_section( 'freedom_custom_css_setting', array(
-			'priority' => 9,
-			'title'    => __( 'Custom CSS', 'freedom' ),
-			'panel'    => 'freedom_design_options',
-		) );
-
-		$wp_customize->add_setting( 'freedom_custom_css', array(
-			'default'              => '',
-			'capability'           => 'edit_theme_options',
-			'sanitize_callback'    => 'wp_filter_nohtml_kses',
-			'sanitize_js_callback' => 'wp_filter_nohtml_kses',
-		) );
-
-		$wp_customize->add_control( new Freedom_Custom_CSS_Control( $wp_customize, 'freedom_custom_css', array(
-			'label'    => __( 'Write your custom css.', 'freedom' ),
-			'section'  => 'freedom_custom_css_setting',
-			'settings' => 'freedom_custom_css',
-		) ) );
-
-	}
 	// End of Design Options
 
 	// Start of the Slider Options
