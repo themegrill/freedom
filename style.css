@@ -2195,6 +2195,7 @@ iframe#wp-custom-header-video {
 		margin-left: -100px;
 		margin-right: -100px;
 	}
+
 	.no-sidebar #primary .entry-content > .alignwide {
 		margin-left: -100px;
 		margin-right: -100px;
@@ -2206,6 +2207,7 @@ iframe#wp-custom-header-video {
 		margin-left: -30px;
 		margin-right: -30px;
 	}
+
 	.no-sidebar.boxed #primary .entry-content > .alignfull {
 		margin-left: -30px;
 		margin-right: -30px;
@@ -2261,6 +2263,10 @@ iframe#wp-custom-header-video {
 
 	.main-small-navigation .inner-wrap {
 		width: 100%;
+	}
+
+	.better-responsive-menu .main-navigation ul li ul {
+		display: none;
 	}
 
 	.small-menu ul {
@@ -2453,11 +2459,13 @@ iframe#wp-custom-header-video {
 		margin-left: -10px;
 		margin-right: -10px;
 	}
+
 	.no-sidebar-full-width.boxed #primary .entry-content > .alignwide,
 	.no-sidebar.boxed #primary .entry-content > .alignwide {
 		margin-left: -10px;
 		margin-right: -10px;
 	}
+
 	.no-sidebar-full-width.boxed #primary .entry-content > .alignfull,
 	.no-sidebar.boxed #primary .entry-content > .alignfull {
 		margin-left: -15px;
