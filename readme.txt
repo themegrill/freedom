@@ -50,6 +50,7 @@ and we will include it within the theme from next version update.
 == Changelog ==
 = TBD =
 * Tweak - Remove deprecate Custom CSS customize option provided via theme.
+* Tweak - Update footer credit link with `rel="nofollow"` attributes.
 
 = Version 1.2.0 2020-08-14 =
 * Tweak - Add and improve theme-related notices.
