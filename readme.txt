@@ -13,7 +13,12 @@ External resources linked to the theme.
   SIL Open Font License (OFL) scripts.sil.org/OFL
 
 Resources packed within the theme.
-* Images on screenshot is from https://pxhere.com/ link. License: Creative Commons Zero (CC0)
+* Images used in the screenshot are licensed under Creative Commons Zero (CC0):
+
+  https://pxhere.com/en/photo/948351
+  https://pxhere.com/en/photo/1332687
+  https://pxhere.com/en/photo/1085258
+  
 * Font Awesome by Dave Gandy http://fortawesome.github.io/Font-Awesome/
   SIL OFL 1.1 http://scripts.sil.org/OFL.
 * HTML5 Shiv @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
