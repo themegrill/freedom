@@ -59,7 +59,7 @@ class Freedom_Welcome_Notice {
 
 					<div class="freedom-message__cta">
 						<?php echo $this->import_button_html(); ?>
-						<span class="plugin-install-notice"><?php esc_html_e( 'Clicking the button will install and activate the ThemeGrill demo importer plugin.', 'imalayas' ); ?></span>
+						<span class="plugin-install-notice"><?php esc_html_e( 'Clicking the button will install and activate the ThemeGrill demo importer plugin.', 'freedom' ); ?></span>
 					</div>
 				</div>
 			</div>
