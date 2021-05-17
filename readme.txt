@@ -54,6 +54,7 @@ and we will include it within the theme from next version update.
 
 == Changelog ==
 = TBD =
+* Tweak - Update screenshot image.
 * Tweak - Update screenshot image source link.
 
 = Version 1.2.1 2020-12-17 =
