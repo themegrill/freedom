@@ -22,7 +22,7 @@ function freedom_scripts_styles_method() {
 	 */
 	wp_enqueue_style( 'freedom_style', get_stylesheet_uri() );
 
-	wp_register_style( 'freedom_googlefonts', 'http://fonts.googleapis.com/css?family=Fira+Sans|Vollkorn' );
+	wp_register_style( 'freedom_googlefonts', 'http://fonts.googleapis.com/css?family=Fira+Sans|Vollkorn&display=swap' );
 	wp_enqueue_style( 'freedom_googlefonts' );
 
 	/**
