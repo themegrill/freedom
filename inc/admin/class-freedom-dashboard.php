@@ -97,7 +97,7 @@ class Freedom_Dashboard {
 						<h3><?php esc_html_e( 'Next Steps', 'freedom' ); ?></h3>
 						<ul>
 							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-media-text">' . esc_html__( 'Documentation', 'freedom' ) . '</a>', esc_url( 'https://docs.themegrill.com/freedom' ) ); ?></li>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'freedom' ) . '</a>', esc_url( 'https://demo.themegrill.com/freedom-demos' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'freedom' ) . '</a>', esc_url( 'https://themegrilldemos.com/freedom-demos/' ) ); ?></li>
 							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-migrate">' . esc_html__( 'Premium Version', 'freedom' ) . '</a>', esc_url( 'https://themegrill.com/themes/freedom' ) ); ?></li>
 						</ul>
 					</div>
