@@ -40,10 +40,16 @@ class Freedom_Dashboard {
 		/* translators: %s: Theme Name. */
 		$theme_page_name = sprintf( esc_html__( '%s Options', 'freedom' ), $theme->Name );
 
-		$page = add_theme_page( $theme_page_name, $theme_page_name, 'edit_theme_options', 'freedom-options', array(
-			$this,
-			'option_page'
-		) );
+		$page = add_theme_page(
+			$theme_page_name,
+			$theme_page_name,
+			'edit_theme_options',
+			'freedom-options',
+			array(
+				$this,
+				'option_page',
+			)
+		);
 
 		add_action( 'admin_print_styles-' . $page, array( $this, 'enqueue_styles' ) );
 	}
@@ -97,7 +103,7 @@ class Freedom_Dashboard {
 						<h3><?php esc_html_e( 'Next Steps', 'freedom' ); ?></h3>
 						<ul>
 							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-media-text">' . esc_html__( 'Documentation', 'freedom' ) . '</a>', esc_url( 'https://docs.themegrill.com/freedom' ) ); ?></li>
-							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'freedom' ) . '</a>', esc_url( 'https://demo.themegrill.com/freedom-demos' ) ); ?></li>
+							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-layout">' . esc_html__( 'Starter Demos', 'freedom' ) . '</a>', esc_url( 'https://themegrilldemos.com/freedom-demos/' ) ); ?></li>
 							<li><?php printf( '<a target="_blank" href="%s" class="welcome-icon dashicons-migrate">' . esc_html__( 'Premium Version', 'freedom' ) . '</a>', esc_url( 'https://themegrill.com/themes/freedom' ) ); ?></li>
 						</ul>
 					</div>
