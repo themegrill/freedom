@@ -36,10 +36,10 @@ Freedom is distributed under the terms of the GNU GPL
 == THEME USAGE ==
 
 = Theme Instruction =
-Get theme instruction at https://themegrill.com/theme-instruction/freedom
+Get theme instruction at https://docs.themegrill.com/freedom/
 
 = Free Support =
-Get free support at https://themegrill.com/support-forum
+Get free support at https://themegrill.com/contact/
 
 = Theme Features Usage =
 All available options can be used from Appearance->Theme Options

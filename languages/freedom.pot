@@ -640,8 +640,8 @@ msgid ""
 "theme supports custom header, custom background, custom menu, widget areas "
 "and has built-in options panel to configure primary color, site logo, "
 "slider, site layout, sidebar layout, category layout and many more. Get "
-"free support at https://themegrill.com/support-forum/ and check the demo at "
-"https://demo.themegrill.com/freedom/"
+"free support at https://themegrill.com/contact/ and check the demo at "
+"https://themegrilldemos.com/freedom/"
 msgstr ""
 
 #. Author URI of the plugin/theme
