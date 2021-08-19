@@ -53,6 +53,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= Version TBD =
+* Enhancement - Added CSS font-display property and swap value for better performance.
+
 = Version 1.2.2 2021-05-17 =
 * Fix - Screenshot image size.
 * Tweak - Update screenshot image source link.
