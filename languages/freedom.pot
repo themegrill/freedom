@@ -1,14 +1,14 @@
-# Copyright (C) 2020 ThemeGrill
+# Copyright (C) 2021 ThemeGrill
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Freedom 1.2.0\n"
+"Project-Id-Version: Freedom 1.2.3\n"
 "Report-Msgid-Bugs-To: themegrill@gmail.com\n"
-"POT-Creation-Date: 2020-08-14 06:51:25+00:00\n"
+"POT-Creation-Date: 2021-08-19 12:21:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -103,59 +103,60 @@ msgstr ""
 msgid "%s Options"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:68
+#: inc/admin/class-freedom-dashboard.php:74
 #. translators: %s: Theme version.
 msgid "Freedom %s"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:77
+#: inc/admin/class-freedom-dashboard.php:83
 #. translators: %s: Theme Name.
 msgid "Welcome to %s!"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:83
+#: inc/admin/class-freedom-dashboard.php:89
 #. translators: %s: Theme Name.
 msgid "Important links to get you started with %s"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:89
+#: inc/admin/class-freedom-dashboard.php:95
 msgid "Get Started"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:92
+#: inc/admin/class-freedom-dashboard.php:98
 msgid "Learn Basics"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:97
+#: inc/admin/class-freedom-dashboard.php:103
 msgid "Next Steps"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:99
+#: inc/admin/class-freedom-dashboard.php:105
 msgid "Documentation"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:100
+#: inc/admin/class-freedom-dashboard.php:106
 msgid "Starter Demos"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:101
+#: inc/admin/class-freedom-dashboard.php:107
 msgid "Premium Version"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:106
+#: inc/admin/class-freedom-dashboard.php:112
 msgid "Further Actions"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:108
-#: inc/admin/class-freedom-theme-review-notice.php:95
+#: inc/admin/class-freedom-dashboard.php:114
 msgid "Got theme support question?"
 msgstr ""
 
-#: inc/admin/class-freedom-dashboard.php:109
+#: inc/admin/class-freedom-dashboard.php:115
 msgid "Leave a review"
 msgstr ""
 
 #: inc/admin/class-freedom-notice.php:58 inc/admin/class-freedom-notice.php:77
+#: inc/admin/class-freedom-theme-review-notice.php:152
+#: inc/admin/class-freedom-theme-review-notice.php:170
 #: inc/admin/class-freedom-welcome-notice.php:76
 msgid "Action failed. Please refresh the page and retry."
 msgstr ""
@@ -165,27 +166,50 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: inc/admin/class-freedom-theme-review-notice.php:68
-#. Translators: %1$s current user display name.
+#: inc/admin/class-freedom-theme-review-notice.php:75
+msgid "FitClub"
+msgstr ""
+
+#: inc/admin/class-freedom-theme-review-notice.php:84
+#. translators: %s: Smile icon
+msgid "The above word is just to draw your attention. %s"
+msgstr ""
+
+#: inc/admin/class-freedom-theme-review-notice.php:93
+#. translators: %1$s: Opening of strong tag, %2$s: Theme's Name, %3$s: Closing
+#. of strong tag
 msgid ""
-"Howdy, %1$s! It seems that you have been using this theme for more than 15 "
-"days. We hope you are happy with everything that the theme has to offer. If "
-"you can spare a minute, please help us by leaving a 5-star review on "
-"WordPress.org.  By spreading the love, we can continue to develop new "
-"amazing features in the future, for free!"
+"Hope you are having a nice experience with %1$s %2$s %3$s theme. Please "
+"provide this theme a nice review."
 msgstr ""
 
-#: inc/admin/class-freedom-theme-review-notice.php:80
-msgid "Sure"
+#: inc/admin/class-freedom-theme-review-notice.php:101
+msgid "What benefit would you have?"
 msgstr ""
 
-#: inc/admin/class-freedom-theme-review-notice.php:85
+#: inc/admin/class-freedom-theme-review-notice.php:107
+#. translators: %s: Smiley icon
+msgid ""
+"Basically, it would encourage us to release updates regularly with new "
+"features & bug fixes so that you can keep on using the theme without any "
+"issues and also to provide free support like we have been doing. %s"
+msgstr ""
+
+#: inc/admin/class-freedom-theme-review-notice.php:116
+msgid "Sure, I'd love to!"
+msgstr ""
+
+#: inc/admin/class-freedom-theme-review-notice.php:121
+msgid "I already did!"
+msgstr ""
+
+#: inc/admin/class-freedom-theme-review-notice.php:126
 #: inc/admin/class-freedom-upgrade-notice.php:95
 msgid "Maybe later"
 msgstr ""
 
-#: inc/admin/class-freedom-theme-review-notice.php:90
-msgid "I already did"
+#: inc/admin/class-freedom-theme-review-notice.php:131
+msgid "I have a query"
 msgstr ""
 
 #: inc/admin/class-freedom-upgrade-notice.php:90
@@ -245,210 +269,202 @@ msgstr ""
 msgid "No Sidebar Content Centered"
 msgstr ""
 
-#: inc/customizer.php:39
+#: inc/customizer.php:38
 msgid "View PRO version"
 msgstr ""
 
-#: inc/customizer.php:52
+#: inc/customizer.php:51
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:58
+#: inc/customizer.php:57
 msgid "Header Logo"
 msgstr ""
 
-#: inc/customizer.php:65
+#: inc/customizer.php:64
 msgid "Show"
 msgstr ""
 
-#: inc/customizer.php:77
+#: inc/customizer.php:76
 msgid "Choose the option that you want."
 msgstr ""
 
-#: inc/customizer.php:80
+#: inc/customizer.php:79
 msgid "Header Logo Only"
 msgstr ""
 
-#: inc/customizer.php:81
+#: inc/customizer.php:80
 msgid "Header Text Only"
 msgstr ""
 
-#: inc/customizer.php:82
+#: inc/customizer.php:81
 msgid "Show Both"
 msgstr ""
 
-#: inc/customizer.php:83
+#: inc/customizer.php:82
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer.php:90
+#: inc/customizer.php:89
 msgid "Responsive Menu Style"
 msgstr ""
 
-#: inc/customizer.php:100
+#: inc/customizer.php:99
 msgid "Switch to new responsive menu"
 msgstr ""
 
-#: inc/customizer.php:111
+#: inc/customizer.php:110
 msgid "Design"
 msgstr ""
 
-#: inc/customizer.php:117
+#: inc/customizer.php:116
 msgid "Site Layout"
 msgstr ""
 
-#: inc/customizer.php:129
+#: inc/customizer.php:128
 msgid "Choose your site layout. The change is reflected in whole site."
 msgstr ""
 
-#: inc/customizer.php:131
+#: inc/customizer.php:130
 msgid "Boxed layout"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:131
 msgid "Wide layout"
 msgstr ""
 
-#: inc/customizer.php:140
+#: inc/customizer.php:139
 msgid "Default layout"
 msgstr ""
 
-#: inc/customizer.php:152
+#: inc/customizer.php:151
 msgid ""
 "Select default layout. This layout will be reflected in whole site "
 "archives, categories, search page etc. The layout for a single post and "
 "page can be controlled from below options."
 msgstr ""
 
-#: inc/customizer.php:166
+#: inc/customizer.php:165
 msgid "Default layout for pages only"
 msgstr ""
 
-#: inc/customizer.php:178
+#: inc/customizer.php:177
 msgid ""
 "Select default layout for pages. This layout will be reflected in all pages "
 "unless unique layout is set for specific page."
 msgstr ""
 
-#: inc/customizer.php:192
+#: inc/customizer.php:191
 msgid "Default layout for single posts only"
 msgstr ""
 
-#: inc/customizer.php:204
+#: inc/customizer.php:203
 msgid ""
 "Select default layout for single posts. This layout will be reflected in "
 "all single posts unless unique layout is set for specific post."
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:217
 msgid "Posts page listing display type"
 msgstr ""
 
-#: inc/customizer.php:230
+#: inc/customizer.php:229
 msgid ""
 "Choose the display type for the latest posts view or posts page view "
 "(static front page)."
 msgstr ""
 
-#: inc/customizer.php:232 inc/customizer.php:255
+#: inc/customizer.php:231 inc/customizer.php:254
 msgid "Photo blogging view (two column)"
 msgstr ""
 
-#: inc/customizer.php:233 inc/customizer.php:256
+#: inc/customizer.php:232 inc/customizer.php:255
 msgid "Normal view"
 msgstr ""
 
-#: inc/customizer.php:241
+#: inc/customizer.php:240
 msgid "Archive/Category posts listing display type"
 msgstr ""
 
-#: inc/customizer.php:253
+#: inc/customizer.php:252
 msgid "Choose the display type for the archive/category view."
 msgstr ""
 
-#: inc/customizer.php:265
+#: inc/customizer.php:264
 msgid "Primary color option"
 msgstr ""
 
-#: inc/customizer.php:276
+#: inc/customizer.php:275
 msgid ""
 "This will reflect in links, buttons and many others. Choose a color to "
 "match your site."
 msgstr ""
 
-#: inc/customizer.php:285
-msgid "Custom CSS"
-msgstr ""
-
-#: inc/customizer.php:297
-msgid "Write your custom css."
-msgstr ""
-
-#: inc/customizer.php:309
+#: inc/customizer.php:286
 msgid "Slider"
 msgstr ""
 
-#: inc/customizer.php:315
+#: inc/customizer.php:292
 msgid "Activate slider"
 msgstr ""
 
-#: inc/customizer.php:327
+#: inc/customizer.php:304
 msgid "Check to activate slider."
 msgstr ""
 
-#: inc/customizer.php:336
+#: inc/customizer.php:313
 msgid "Slider #%1$s"
 msgstr ""
 
-#: inc/customizer.php:348
+#: inc/customizer.php:325
 msgid "Upload Image"
 msgstr ""
 
-#: inc/customizer.php:361
+#: inc/customizer.php:338
 msgid "Enter title for this slide"
 msgstr ""
 
-#: inc/customizer.php:374
+#: inc/customizer.php:351
 msgid "Enter description for this slide"
 msgstr ""
 
-#: inc/customizer.php:387
+#: inc/customizer.php:364
 msgid "Enter the button text."
 msgstr ""
 
-#: inc/customizer.php:400
+#: inc/customizer.php:377
 msgid "Enter link to redirect for the slide"
 msgstr ""
 
-#: inc/customizer.php:412
+#: inc/customizer.php:389
 msgid "Additional Options"
 msgstr ""
 
-#: inc/customizer.php:417
+#: inc/customizer.php:394
 msgid "Author Bio Option"
 msgstr ""
 
-#: inc/customizer.php:429
+#: inc/customizer.php:406
 msgid "Check to display the author bio."
 msgstr ""
 
-#: inc/customizer.php:437
+#: inc/customizer.php:414
 msgid "Related Posts"
 msgstr ""
 
-#: inc/customizer.php:449
+#: inc/customizer.php:426
 msgid "Check to activate the related posts"
 msgstr ""
 
-#: inc/customizer.php:462
+#: inc/customizer.php:439
 msgid "Related Posts Must Be Shown As:"
 msgstr ""
 
-#: inc/customizer.php:466
+#: inc/customizer.php:443
 msgid "Related Posts By Categories"
 msgstr ""
 
-#: inc/customizer.php:467
+#: inc/customizer.php:444
 msgid "Related Posts By Tags"
 msgstr ""
 
@@ -482,60 +498,56 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: inc/functions.php:430
+#: inc/functions.php:424
 msgid "Post navigation"
 msgstr ""
 
-#: inc/functions.php:440
+#: inc/functions.php:434
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr ""
 
-#: inc/functions.php:444
+#: inc/functions.php:438
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: inc/functions.php:470
+#: inc/functions.php:464
 msgid "Pingback:"
 msgstr ""
 
-#: inc/functions.php:470
+#: inc/functions.php:464
 msgid "(Edit)"
 msgstr ""
 
-#: inc/functions.php:485
+#: inc/functions.php:479
 msgid "Post author"
 msgstr ""
 
-#: inc/functions.php:488
+#: inc/functions.php:482
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/functions.php:496
+#: inc/functions.php:490
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/functions.php:502
+#: inc/functions.php:496
 msgid "Reply"
 msgstr ""
 
-#: inc/functions.php:524
+#: inc/functions.php:520
 msgid "WordPress"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "ThemeGrill"
+#: inc/functions.php:524
+msgid "Copyright &copy; %1$s %2$s. All rights reserved."
 msgstr ""
 
-#: inc/functions.php:527
-msgid "Copyright &copy; "
+#: inc/functions.php:524
+msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: inc/functions.php:527
-msgid ".&nbsp;Powered by&nbsp;"
-msgstr ""
-
-#: inc/functions.php:527
-msgid "."
+#: inc/functions.php:524
+msgid "Powered by %s."
 msgstr ""
 
 #: inc/header-functions.php:172
@@ -644,6 +656,10 @@ msgid ""
 "https://themegrilldemos.com/freedom/"
 msgstr ""
 
+#. Author of the plugin/theme
+msgid "ThemeGrill"
+msgstr ""
+
 #. Author URI of the plugin/theme
 msgid "https://themegrill.com"
 msgstr ""
@@ -659,12 +675,12 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/functions.php:434 navigation.php:43
+#: inc/functions.php:428 navigation.php:43
 msgctxt "Previous post link"
 msgid "&larr;"
 msgstr ""
 
-#: inc/functions.php:435 navigation.php:44
+#: inc/functions.php:429 navigation.php:44
 msgctxt "Next post link"
 msgid "&rarr;"
 msgstr ""
