@@ -53,6 +53,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= Version 1.2.4 2023-09-19 =
+* Tweak - Update WordPress tested upto version to 6.3.
+
 = Version 1.2.3 2021-08-19 =
 * Enhancement - Added CSS font-display property and swap value for better performance.
 
