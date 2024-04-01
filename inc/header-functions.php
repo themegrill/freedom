@@ -133,7 +133,7 @@ if ( ! function_exists( 'freedom_header_title' ) ) :
 				 * what author we're dealing with (if that is the case).
 				*/
 				the_post();
-				$freedom_header_title = sprintf( __( 'Author: %s', 'freedom' ), '<span class="vcard">' . get_the_author() . '</span>' );
+				$freedom_header_title = sprintf( __( 'Author: %s', 'freedom' ), '<span class="vcard">' .esc_attr( get_the_author() ). '</span>' );
 				/* Since we called the_post() above, we need to
 				 * rewind the loop back to the beginning that way
 				 * we can run the loop properly, in full.
