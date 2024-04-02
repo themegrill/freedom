@@ -53,7 +53,7 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
-= Version TBD =
+= Version 1.2.5 2024-04-02 =
 * Enhancement - General security measures.
 
 = Version 1.2.4 2023-09-19 =
