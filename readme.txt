@@ -53,6 +53,9 @@ and we will include it within the theme from next version update.
 /**********************************************************/
 
 == Changelog ==
+= Version 1.2.6 2025-08-12 =
+* Update    - General security measure.
+
 = Version 1.2.5 2024-04-02 =
 * Enhancement - General security measures.
 
